@@ -43,7 +43,7 @@ public abstract class AbstractPersistable implements Serializable, Comparable<Ab
     }
 
 // This part is currently commented out because it's probably a bad thing to mix identification with equality
-
+// 这部分目前已被注释掉，因为将识别与平等相结合可能是一件坏事
 //    public boolean equals(Object o) {
 //        if (this == o) {
 //            return true;

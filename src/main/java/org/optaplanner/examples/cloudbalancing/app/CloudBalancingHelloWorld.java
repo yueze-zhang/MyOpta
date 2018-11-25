@@ -26,18 +26,23 @@ import org.optaplanner.examples.cloudbalancing.persistence.CloudBalancingGenerat
 public class CloudBalancingHelloWorld {
 
     public static void main(String[] args) {
-        // Build the Solver
+
+        // 构建Solver基于解算器的配置（在此情况下的XML文件路径为：cloudBalancingSolverConfig.xml）。
+        //详细调用情况请参考org.optaplanner.core.api.solver
+        //点击cloudBalancingSolverConfig.xml 进入求解器配置
+
         SolverFactory<CloudBalance> solverFactory = SolverFactory.createFromXmlResource(
                 "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
         Solver<CloudBalance> solver = solverFactory.buildSolver();
 
         // Load a problem with 400 computers and 1200 processes
+        //生成随机问题：您将用一个加载实际问题的类替换它，例如从数据库中替换。
         CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(400, 1200);
 
-        // Solve the problem
+        // 解决这个问题。
         CloudBalance solvedCloudBalance = solver.solve(unsolvedCloudBalance);
 
-        // Display the result
+        // 显示结果
         System.out.println("\nSolved cloudBalance with 400 computers and 1200 processes:\n"
                 + toDisplayString(solvedCloudBalance));
     }

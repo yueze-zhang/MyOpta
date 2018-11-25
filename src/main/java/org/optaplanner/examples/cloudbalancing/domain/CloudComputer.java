@@ -19,7 +19,8 @@ package org.optaplanner.examples.cloudbalancing.domain;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 import org.optaplanner.examples.common.swingui.components.Labeled;
-//
+
+//xml与java对象转换 -- XStreamAlias
 @XStreamAlias("CloudComputer")
 public class CloudComputer extends AbstractPersistable implements Labeled {
 
@@ -31,6 +32,7 @@ public class CloudComputer extends AbstractPersistable implements Labeled {
     public CloudComputer() {
     }
 
+    //在这里面与XML相互对应
     public CloudComputer(long id, int cpuPower, int memory, int networkBandwidth, int cost) {
         super(id);
         this.cpuPower = cpuPower;

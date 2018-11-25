@@ -3,12 +3,16 @@
   <!--<environmentMode>FULL_ASSERT</environmentMode>--><!-- To slowly prove there are no bugs in this code -->
   <!--<moveThreadCount>AUTO</moveThreadCount>--><!-- To solve faster by saturating multiple CPU cores -->
 
-  <!-- Domain model configuration -->
+  <!--  域模型配置：我们需要让Planner了解我们的域类。
+  在此配置中，它将自动扫描类路径中的所有类（对于@PlanningEntity或@PlanningSolution注释）：  -->
   <scanAnnotatedClasses>
     <packageInclude>org.optaplanner.examples.cloudbalancing</packageInclude>
   </scanAnnotatedClasses>
 
-  <!-- Score configuration -->
+  <!-- 分数配置：Planner应如何优化规划变量？我们的目标是什么？ -->
+  <!--由于我们有硬性和软性约束，我们使用a HardSoftScore。
+  但我们需要告诉Planner如何计算分数，具体取决于我们的业务需求。
+  我们将研究两种计算得分的方法：使用简单的Java实现，或使用Drools DRL。-->
   <scoreDirectorFactory>
     <!--<easyScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.optional.score.CloudBalancingEasyScoreCalculator</easyScoreCalculatorClass>-->
     <!--<easyScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.optional.score.CloudBalancingMapBasedEasyScoreCalculator</easyScoreCalculatorClass>-->
@@ -20,7 +24,8 @@
     <!--</assertionScoreDirectorFactory>-->
   </scoreDirectorFactory>
 
-  <!-- Optimization algorithms configuration -->
+  <!-- 优化算法配置：Planner应该如何优化它？
+  在这种情况下，我们使用默认优化算法（因为没有配置明确的优化算法）2秒： -->
   <termination>
     <minutesSpentLimit>2</minutesSpentLimit>
   </termination>

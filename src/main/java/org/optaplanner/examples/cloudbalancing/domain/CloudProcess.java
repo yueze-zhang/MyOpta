@@ -23,15 +23,22 @@ import org.optaplanner.examples.cloudbalancing.optional.domain.CloudComputerStre
 import org.optaplanner.examples.cloudbalancing.optional.domain.CloudProcessDifficultyComparator;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 
+//Planning entity: Planner在解决过程中可以改变的类。
+//在这个例子中，Planning entity是Process类，因为Planner可以将Process分配给计算机
+//我们需要告诉Planner它可以更改computer类中的属性，做如下操作
+// 使用@PlanningEntity注释类. .
+// 使用@PlanningVariable注释类
+
 @PlanningEntity(difficultyComparatorClass = CloudProcessDifficultyComparator.class)
 @XStreamAlias("CloudProcess")
 public class CloudProcess extends AbstractPersistable {
 
-    private int requiredCpuPower; // in gigahertz
+    private int requiredCpuPower; // in gigahertz 千兆赫
     private int requiredMemory; // in gigabyte RAM
-    private int requiredNetworkBandwidth; // in gigabyte per hour
+    private int requiredNetworkBandwidth; // in gigabyte per hour 带宽
 
     // Planning variables: changes during planning, between score calculations.
+    //Planning variables: 计划期间，计分计算之间的变化。
     private CloudComputer computer;
 
     public CloudProcess() {
@@ -68,12 +75,14 @@ public class CloudProcess extends AbstractPersistable {
         this.requiredNetworkBandwidth = requiredNetworkBandwidth;
     }
 
+    //The property (or properties) of a planning entity class that changes during solving.
+    // In this example, it is the property computer on the class Process.
     @PlanningVariable(valueRangeProviderRefs = {"computerRange"},
             strengthComparatorClass = CloudComputerStrengthComparator.class)
     public CloudComputer getComputer() {
         return computer;
     }
-
+    //Of course, the property computer needs a setter too, so Planner can change it during solving.
     public void setComputer(CloudComputer computer) {
         this.computer = computer;
     }
