@@ -13,4 +13,9 @@
       <module name="optaplanner-examples" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="optaplanner-examples" options="-Xlint:unchecked" />
+    </option>
+  </component>
 </project>
