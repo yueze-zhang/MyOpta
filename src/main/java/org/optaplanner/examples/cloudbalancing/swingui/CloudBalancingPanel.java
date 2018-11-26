@@ -73,7 +73,9 @@ public class CloudBalancingPanel extends SolutionPanel<CloudBalance> {
         deleteCloudProcessIcon = new ImageIcon(getClass().getResource("deleteCloudProcess.png"));
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
+        //创建表头
         JPanel headerPanel = createHeaderPanel();
+        //创建内容
         JPanel computersPanel = createComputersPanel();
         layout.setHorizontalGroup(layout.createParallelGroup()
                 .addComponent(headerPanel).addComponent(computersPanel));
@@ -120,12 +122,15 @@ public class CloudBalancingPanel extends SolutionPanel<CloudBalance> {
         return maximumComputerNetworkBandwidth;
     }
 
+    //这里面的内容就是字“CPU power Memory 带宽 花费”
     private JPanel createHeaderPanel() {
-        JPanel headerPanel = new JPanel(new GridLayout(0, 5));
+        //使容器中的各组件呈M行×N列的网格状分布。
+        JPanel headerPanel = new JPanel(new GridLayout(0, 6));
         JPanel addPanel = new JPanel(new GridLayout());
+        //点击按钮添加计算机
         JButton addComputerButton = SwingUtils.makeSmallButton(new JButton(addCloudComputerIcon));
-        addComputerButton.setToolTipText("Add computer");
-        addComputerButton.addActionListener(e -> {
+        addComputerButton.setToolTipText("添加计算机");
+        addComputerButton.addActionListener(e -> {  //点击按钮
             CloudComputer computer = new CloudComputer();
             computer.setCpuPower(12);
             computer.setMemory(32);
@@ -134,8 +139,9 @@ public class CloudBalancingPanel extends SolutionPanel<CloudBalance> {
             addComputer(computer);
         });
         addPanel.add(addComputerButton);
+        //点击按钮添加进程
         JButton addProcessButton = SwingUtils.makeSmallButton(new JButton(addCloudProcessIcon));
-        addProcessButton.setToolTipText("Add process");
+        addProcessButton.setToolTipText("添加进程");
         addProcessButton.addActionListener(e -> {
             CloudProcess process = new CloudProcess();
             process.setRequiredCpuPower(3);
@@ -144,20 +150,21 @@ public class CloudBalancingPanel extends SolutionPanel<CloudBalance> {
             addProcess(process);
         });
         addPanel.add(addProcessButton);
+        //添加一些字
         JPanel cornerPanel = new JPanel(new BorderLayout());
         cornerPanel.add(addPanel, BorderLayout.EAST);
         headerPanel.add(cornerPanel);
-        JLabel cpuPowerLabel = new JLabel("CPU power");
+        JLabel cpuPowerLabel = new JLabel("CPU资源");
         headerPanel.add(cpuPowerLabel);
-        JLabel memoryLabel = new JLabel("Memory");
+        JLabel memoryLabel = new JLabel("内存");
         headerPanel.add(memoryLabel);
-        JLabel networkBandwidthLabel = new JLabel("Network bandwidth");
+        JLabel networkBandwidthLabel = new JLabel("带宽");
         headerPanel.add(networkBandwidthLabel);
-        JLabel costLabel = new JLabel("Cost");
+        JLabel costLabel = new JLabel("花费");
         headerPanel.add(costLabel);
         return headerPanel;
     }
-
+    //内容面板
     private JPanel createComputersPanel() {
         computersPanel = new JPanel(new GridLayout(0, 1));
         computerToPanelMap = new LinkedHashMap<>();
@@ -195,6 +202,7 @@ public class CloudBalancingPanel extends SolutionPanel<CloudBalance> {
 
     @Override
     public void updatePanel(CloudBalance cloudBalance) {
+        //map.keySet()获取map全部的key值
         Set<CloudComputer> deadCloudComputerSet = new LinkedHashSet<>(computerToPanelMap.keySet());
         deadCloudComputerSet.remove(null);
         for (CloudComputer computer : cloudBalance.getComputerList()) {

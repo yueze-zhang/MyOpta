@@ -29,9 +29,10 @@ import org.optaplanner.persistence.xstream.impl.domain.solution.XStreamSolutionF
  */
 public class CloudBalancingApp extends CommonApp<CloudBalance> {
 
+    //求解器位置所在
     public static final String SOLVER_CONFIG
             = "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml";
-
+    //数据文件存放位置名字
     public static final String DATA_DIR_NAME = "cloudbalancing";
 
     public static void main(String[] args) {
@@ -41,9 +42,9 @@ public class CloudBalancingApp extends CommonApp<CloudBalance> {
 
     public CloudBalancingApp() {
         super("Cloud balancing",
-                "Assign processes to computers.\n\n" +
-                "Each computer must have enough hardware to run all of its processes.\n" +
-                "Each used computer inflicts a maintenance cost.",
+                "将进程分配给计算机.\n\n" +
+                "每台计算机都必须有足够的硬件来运行其所有进程.\n" +
+                "每台使用过的计算机都会产生维护成本.",
                 SOLVER_CONFIG, DATA_DIR_NAME,
                 CloudBalancingPanel.LOGO_PATH);
     }

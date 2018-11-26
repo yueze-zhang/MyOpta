@@ -28,6 +28,10 @@ public interface ScoreDirectorFactory<Solution_> {
      * Creates a new {@link ScoreDirector} instance.
      * @return never null
      */
+    /**
+                  *创建一个新的{@link ScoreDirector}实例。
+                  * @return永远不会为空
+     */
     ScoreDirector<Solution_> buildScoreDirector();
 
 }

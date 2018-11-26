@@ -75,6 +75,7 @@ public class SolutionBusiness<Solution_> {
     private File exportDataDir;
 
     // volatile because the solve method doesn't come from the event thread (like every other method call)
+    //volatile因为solve方法不是来自事件线程（就像所有其他方法调用一样）
     private volatile Solver<Solution_> solver;
     private String solutionFileName = null;
     private ScoreDirector<Solution_> guiScoreDirector;
@@ -133,6 +134,7 @@ public class SolutionBusiness<Solution_> {
         return exporter != null;
     }
 
+    //导入、打开、输出
     public void updateDataDirs() {
         if (hasImporter()) {
             importDataDir = new File(dataDir, "import");
@@ -181,7 +183,13 @@ public class SolutionBusiness<Solution_> {
     }
 
     public void setSolver(Solver<Solution_> solver) {
+        //构建Solver基于解算器的配置
+        //SolverFactory<CloudBalance> solverFactory = SolverFactory.createFromXmlResource(
+        //                "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
+        //        Solver<CloudBalance> solver = solverFactory.buildSolver();
         this.solver = solver;
+
+        //分数配置
         ScoreDirectorFactory<Solution_> scoreDirectorFactory = solver.getScoreDirectorFactory();
         guiScoreDirector = scoreDirectorFactory.buildScoreDirector();
     }

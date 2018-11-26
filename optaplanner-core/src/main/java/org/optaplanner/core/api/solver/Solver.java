@@ -34,13 +34,16 @@ import org.optaplanner.core.impl.solver.termination.Termination;
 
 /**
  * A Solver solves a planning problem.
+ * 解算器解决了规划问题。
  * Clients usually call {@link #solve} and then {@link #getBestSolution()}.
- * <p>
  * These methods are not thread-safe and should be called from the same thread,
  * except for the methods that are explicitly marked as thread-safe.
  * Note that despite that {@link #solve} is not thread-safe for clients of this class,
  * that method is free to do multithreading inside itself.
- * <p>
+ *   *这些方法不是线程安全的，应该从同一个线程调用，
+ *   *除了明确标记为线程安全的方法。
+ *   *请注意，尽管{@link #solve}对于此类的客户端来说不是线程安全的，
+ *   *该方法可以自由地在其内部进行多线程处理。
  * Build by a {@link SolverFactory}.
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  */
@@ -57,6 +60,17 @@ public interface Solver<Solution_> {
      * This method is thread-safe.
      * @return never null, but it can return the uninitialized {@link PlanningSolution} with a {@link Score} null.
      */
+    /**
+           *最佳解决方案是在解决过程中找到的{@link PlanningSolution最佳解决方案}：
+           *它可能是也可能不是最佳，可行或甚至是初始化的。
+
+           * {@link #solve}方法也返回最佳解决方案，
+           *但这种方法在罕见的异步情况下很有用（尽管如此）
+           * {@link SolverEventListener＃bestSolutionChanged（BestSolutionChangedEvent）}通常更合适）。
+
+           *此方法是线程安全的。
+           * @return永远不会为null，但它可以返回未初始化的{@link PlanningSolution}，其中{@link Score}为null。
+          */
     Solution_ getBestSolution();
 
     /**
@@ -191,6 +205,11 @@ public interface Solver<Solution_> {
      *
      * @return never null
      */
+    /**
+           *有助于在UI中重用{@link Score}计算（甚至可以在UI中解释{@link Score}）。
+          *
+           * @return永远不会为空
+          */
     ScoreDirectorFactory<Solution_> getScoreDirectorFactory();
 
 }

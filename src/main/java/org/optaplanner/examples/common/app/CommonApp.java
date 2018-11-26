@@ -39,6 +39,7 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
 
     /**
      * The path to the data directory, preferably with unix slashes for portability.
+     * 数据目录的路径，最好使用unix斜杠以便于移植。
      * For example: -D{@value #DATA_DIR_SYSTEM_PROPERTY}=sources/data/
      */
     public static final String DATA_DIR_SYSTEM_PROPERTY = "org.optaplanner.examples.dataDir";
@@ -64,6 +65,10 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
      * Some examples are not compatible with every native LookAndFeel.
      * For example, NurseRosteringPanel is incompatible with Mac.
      */
+    /**
+           *某些示例与每个本机LookAndFeel都不兼容。
+           *例如，NurseRosteringPanel与Mac不兼容。
+          */
     public static void prepareSwingEnvironment() {
         SwingUncaughtExceptionHandler.register();
         SwingUtils.fixateLookAndFeel();
@@ -109,8 +114,9 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
     public void init() {
         init(null, true);
     }
-
+    //界面初始化
     public void init(Component centerForComponent, boolean exitOnClose) {
+
         solutionBusiness = createSolutionBusiness();
         solverAndPersistenceFrame = new SolverAndPersistenceFrame<>(solutionBusiness, createSolutionPanel());
         solverAndPersistenceFrame.setDefaultCloseOperation(exitOnClose ? WindowConstants.EXIT_ON_CLOSE : WindowConstants.DISPOSE_ON_CLOSE);
@@ -119,6 +125,7 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
     }
 
     public SolutionBusiness<Solution_> createSolutionBusiness() {
+
         SolutionBusiness<Solution_> solutionBusiness = new SolutionBusiness<>(this);
         solutionBusiness.setSolver(createSolver());
         solutionBusiness.setDataDir(determineDataDir(dataDirName));
@@ -130,6 +137,10 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
     }
 
     protected Solver<Solution_> createSolver() {
+        //构建Solver基于解算器的配置
+        //SolverFactory<CloudBalance> solverFactory = SolverFactory.createFromXmlResource(
+        //                "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
+        //        Solver<CloudBalance> solver = solverFactory.buildSolver();
         SolverFactory<Solution_> solverFactory = SolverFactory.createFromXmlResource(solverConfig);
         return solverFactory.buildSolver();
     }
