@@ -124,6 +124,7 @@ public class CloudBalancingGenerator extends LoggingMain {
 
     protected Random random;
 
+    //构造函数
     public CloudBalancingGenerator() {
         solutionFileIO = new XStreamSolutionFileIO<>(CloudBalance.class);
         outputDir = new File(CommonApp.determineDataDir(CloudBalancingApp.DATA_DIR_NAME), "unsolved");
@@ -152,6 +153,7 @@ public class CloudBalancingGenerator extends LoggingMain {
         logger.info("Saved: {}", outputFile);
     }
 
+    //生成随机案例
     public CloudBalance createCloudBalance(int computerListSize, int processListSize) {
         return createCloudBalance(determineFileName(computerListSize, processListSize),
                 computerListSize, processListSize);

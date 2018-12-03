@@ -44,6 +44,7 @@ public abstract class CommonApp<Solution_> extends LoggingMain {
      */
     public static final String DATA_DIR_SYSTEM_PROPERTY = "org.optaplanner.examples.dataDir";
 
+    //确定数据目录
     public static File determineDataDir(String dataDirName) {
         String dataDirPath = System.getProperty(DATA_DIR_SYSTEM_PROPERTY, "data/");
         File dataDir = new File(dataDirPath, dataDirName);

@@ -23,7 +23,7 @@ import org.junit.runners.Parameterized;
 import org.optaplanner.core.config.exhaustivesearch.ExhaustiveSearchType;
 import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
 import org.optaplanner.examples.common.app.AbstractExhaustiveSearchTest;
-
+//云平衡穷举搜索测试
 public class CloudBalancingExhaustiveSearchTest extends AbstractExhaustiveSearchTest<CloudBalance> {
 
     @Parameterized.Parameters(name = "{index}: {0} - {1}")

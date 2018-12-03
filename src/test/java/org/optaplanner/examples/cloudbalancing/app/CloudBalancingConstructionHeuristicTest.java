@@ -23,7 +23,7 @@ import org.junit.runners.Parameterized;
 import org.optaplanner.core.config.constructionheuristic.ConstructionHeuristicType;
 import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
 import org.optaplanner.examples.common.app.AbstractConstructionHeuristicTest;
-
+//云平衡构造启发式测试
 public class CloudBalancingConstructionHeuristicTest extends AbstractConstructionHeuristicTest<CloudBalance> {
 
     @Parameterized.Parameters(name = "{index}: {0} - {1}")

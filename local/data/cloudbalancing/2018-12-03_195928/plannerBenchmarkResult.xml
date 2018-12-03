@@ -1,0 +1,518 @@
+<plannerBenchmarkResult xStreamId="1">
+  <name>2018-12-03_195928</name>
+  <aggregation>false</aggregation>
+  <availableProcessors>6</availableProcessors>
+  <loggingLevelOptaPlannerCore>debug</loggingLevelOptaPlannerCore>
+  <loggingLevelDroolsCore>warn</loggingLevelDroolsCore>
+  <maxMemory>3804758016</maxMemory>
+  <optaPlannerVersion>Unjarred development snapshot</optaPlannerVersion>
+  <javaVersion>Java 1.8.0_171 (Oracle Corporation)</javaVersion>
+  <javaVM>Java Java HotSpot(TM) 64-Bit Server VM 25.171-b11 (Oracle Corporation)</javaVM>
+  <operatingSystem>Windows 10 amd64 10.0</operatingSystem>
+  <parallelBenchmarkCount>4</parallelBenchmarkCount>
+  <warmUpTimeMillisSpentLimit>30</warmUpTimeMillisSpentLimit>
+  <solverBenchmarkResult xStreamId="2">
+    <name>First Fit</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="3">
+      <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
+      <entityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</entityClass>
+      <scoreDirectorFactory xStreamId="4">
+        <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+      <termination xStreamId="5">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="6">
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+      </constructionHeuristic>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="7">
+      <subSingleBenchmarkResult xStreamId="8">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="9">0hard/-137440soft</score>
+        <timeMillisSpent>653</timeMillisSpent>
+        <scoreCalculationCount>19583</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="10">
+      <subSingleBenchmarkResult xStreamId="11">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="12">0hard/-253960soft</score>
+        <timeMillisSpent>741</timeMillisSpent>
+        <scoreCalculationCount>79299</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="13">
+      <subSingleBenchmarkResult xStreamId="14">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="15">0hard/-544680soft</score>
+        <timeMillisSpent>1897</timeMillisSpent>
+        <scoreCalculationCount>302885</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="16">
+      <subSingleBenchmarkResult xStreamId="17">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="18">0hard/-1115430soft</score>
+        <timeMillisSpent>7643</timeMillisSpent>
+        <scoreCalculationCount>1215271</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="19">
+      <subSingleBenchmarkResult xStreamId="20">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="21">0hard/-2275780soft</score>
+        <timeMillisSpent>34324</timeMillisSpent>
+        <scoreCalculationCount>4785060</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="22">
+    <name>First Fit Decreasing</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="23">
+      <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
+      <entityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</entityClass>
+      <scoreDirectorFactory xStreamId="24">
+        <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+      <termination xStreamId="25">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="26">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="27">
+      <subSingleBenchmarkResult xStreamId="28">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="29">0hard/-132440soft</score>
+        <timeMillisSpent>592</timeMillisSpent>
+        <scoreCalculationCount>20421</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="30">
+      <subSingleBenchmarkResult xStreamId="31">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="32">0hard/-244360soft</score>
+        <timeMillisSpent>631</timeMillisSpent>
+        <scoreCalculationCount>80755</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="33">
+      <subSingleBenchmarkResult xStreamId="34">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="35">0hard/-529680soft</score>
+        <timeMillisSpent>1970</timeMillisSpent>
+        <scoreCalculationCount>306666</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="36">
+      <subSingleBenchmarkResult xStreamId="37">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="38">0hard/-1065950soft</score>
+        <timeMillisSpent>7612</timeMillisSpent>
+        <scoreCalculationCount>1199660</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="39">
+      <subSingleBenchmarkResult xStreamId="40">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="41">0hard/-2106500soft</score>
+        <timeMillisSpent>35291</timeMillisSpent>
+        <scoreCalculationCount>4761316</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="42">
+    <name>Tabu Search</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="43">
+      <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
+      <entityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</entityClass>
+      <scoreDirectorFactory xStreamId="44">
+        <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+      <termination xStreamId="45">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="46">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="47">
+        <unionMoveSelector xStreamId="48">
+          <changeMoveSelector xStreamId="49"/>
+          <swapMoveSelector xStreamId="50"/>
+          <pillarChangeMoveSelector xStreamId="51"/>
+          <pillarSwapMoveSelector xStreamId="52"/>
+        </unionMoveSelector>
+        <acceptor xStreamId="53">
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager xStreamId="54">
+          <acceptedCountLimit>1000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="55">
+      <subSingleBenchmarkResult xStreamId="56">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="57">0hard/-111090soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>19156426</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="58">
+      <subSingleBenchmarkResult xStreamId="59">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="60">0hard/-191040soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>17820534</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="61">
+      <subSingleBenchmarkResult xStreamId="62">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="63">0hard/-433080soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>17029682</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="64">
+      <subSingleBenchmarkResult xStreamId="65">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="66">0hard/-895010soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>16460719</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="67">
+      <subSingleBenchmarkResult xStreamId="68">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="69">0hard/-1808570soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>17935626</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="70">
+    <name>Simulated Annealing</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="71">
+      <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
+      <entityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</entityClass>
+      <scoreDirectorFactory xStreamId="72">
+        <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+      <termination xStreamId="73">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="74">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="75">
+        <unionMoveSelector xStreamId="76">
+          <changeMoveSelector xStreamId="77"/>
+          <swapMoveSelector xStreamId="78"/>
+          <pillarChangeMoveSelector xStreamId="79"/>
+          <pillarSwapMoveSelector xStreamId="80"/>
+        </unionMoveSelector>
+        <acceptor xStreamId="81">
+          <simulatedAnnealingStartingTemperature>0hard/400soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager xStreamId="82">
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="83">
+      <subSingleBenchmarkResult xStreamId="84">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="85">0hard/-110550soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>17265739</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="86">
+      <subSingleBenchmarkResult xStreamId="87">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="88">0hard/-192520soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>16051923</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="89">
+      <subSingleBenchmarkResult xStreamId="90">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="91">0hard/-428420soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>14720747</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="92">
+      <subSingleBenchmarkResult xStreamId="93">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="94">0hard/-886890soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>12080824</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="95">
+      <subSingleBenchmarkResult xStreamId="96">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="97">0hard/-1758350soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>11924402</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="98">
+    <name>Late Acceptance</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="99">
+      <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
+      <entityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</entityClass>
+      <scoreDirectorFactory xStreamId="100">
+        <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+      <termination xStreamId="101">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="102">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="103">
+        <unionMoveSelector xStreamId="104">
+          <changeMoveSelector xStreamId="105"/>
+          <swapMoveSelector xStreamId="106"/>
+          <pillarChangeMoveSelector xStreamId="107"/>
+          <pillarSwapMoveSelector xStreamId="108"/>
+        </unionMoveSelector>
+        <acceptor xStreamId="109">
+          <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager xStreamId="110">
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="111">
+      <subSingleBenchmarkResult xStreamId="112">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="113">0hard/-113390soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>17468016</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="114">
+      <subSingleBenchmarkResult xStreamId="115">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="116">0hard/-194830soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>16268331</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="117">
+      <subSingleBenchmarkResult xStreamId="118">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="119">0hard/-430940soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>14739964</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="120">
+      <subSingleBenchmarkResult xStreamId="121">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="122">0hard/-891370soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>11974332</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+    <singleBenchmarkResult xStreamId="123">
+      <subSingleBenchmarkResult xStreamId="124">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="125">0hard/-1778370soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>11424812</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="126">
+    <name>100computers-300processes</name>
+    <problemProvider class="fileProblemProvider" xStreamId="127">
+      <problemFile>data\cloudbalancing\unsolved\100computers-300processes.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="128">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="7"/>
+    <singleBenchmarkResult xStreamRef="27"/>
+    <singleBenchmarkResult xStreamRef="55"/>
+    <singleBenchmarkResult xStreamRef="83"/>
+    <singleBenchmarkResult xStreamRef="111"/>
+    <entityCount>300</entityCount>
+    <variableCount>300</variableCount>
+    <maximumValueCount>100</maximumValueCount>
+    <problemScale>30000</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="129">
+    <name>200computers-600processes</name>
+    <problemProvider class="fileProblemProvider" xStreamId="130">
+      <problemFile>data\cloudbalancing\unsolved\200computers-600processes.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="131">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="10"/>
+    <singleBenchmarkResult xStreamRef="30"/>
+    <singleBenchmarkResult xStreamRef="58"/>
+    <singleBenchmarkResult xStreamRef="86"/>
+    <singleBenchmarkResult xStreamRef="114"/>
+    <entityCount>600</entityCount>
+    <variableCount>600</variableCount>
+    <maximumValueCount>200</maximumValueCount>
+    <problemScale>120000</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="132">
+    <name>400computers-1200processes</name>
+    <problemProvider class="fileProblemProvider" xStreamId="133">
+      <problemFile>data\cloudbalancing\unsolved\400computers-1200processes.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="134">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="13"/>
+    <singleBenchmarkResult xStreamRef="33"/>
+    <singleBenchmarkResult xStreamRef="61"/>
+    <singleBenchmarkResult xStreamRef="89"/>
+    <singleBenchmarkResult xStreamRef="117"/>
+    <entityCount>1200</entityCount>
+    <variableCount>1200</variableCount>
+    <maximumValueCount>400</maximumValueCount>
+    <problemScale>480000</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="135">
+    <name>800computers-2400processes</name>
+    <problemProvider class="fileProblemProvider" xStreamId="136">
+      <problemFile>data\cloudbalancing\unsolved\800computers-2400processes.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="137">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="16"/>
+    <singleBenchmarkResult xStreamRef="36"/>
+    <singleBenchmarkResult xStreamRef="64"/>
+    <singleBenchmarkResult xStreamRef="92"/>
+    <singleBenchmarkResult xStreamRef="120"/>
+    <entityCount>2400</entityCount>
+    <variableCount>2400</variableCount>
+    <maximumValueCount>800</maximumValueCount>
+    <problemScale>1920000</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="138">
+    <name>1600computers-4800processes</name>
+    <problemProvider class="fileProblemProvider" xStreamId="139">
+      <problemFile>data\cloudbalancing\unsolved\1600computers-4800processes.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="140">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="19"/>
+    <singleBenchmarkResult xStreamRef="39"/>
+    <singleBenchmarkResult xStreamRef="67"/>
+    <singleBenchmarkResult xStreamRef="95"/>
+    <singleBenchmarkResult xStreamRef="123"/>
+    <entityCount>4800</entityCount>
+    <variableCount>4800</variableCount>
+    <maximumValueCount>1600</maximumValueCount>
+    <problemScale>7680000</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <startingTimestamp>2018-12-03T19:59:28.165+08:00</startingTimestamp>
+  <benchmarkTimeMillisSpent>1237275</benchmarkTimeMillisSpent>
+</plannerBenchmarkResult>

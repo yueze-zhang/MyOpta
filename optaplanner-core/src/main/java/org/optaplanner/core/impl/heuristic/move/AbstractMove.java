@@ -43,6 +43,7 @@ public abstract class AbstractMove<Solution_> implements Move<Solution_> {
     }
 
     /**
+     * //在移动完成之前调用，因此可以评估移动，然后撤消移动，而不会导致解决方案的永久性更改。
      * Called before the move is done, so the move can be evaluated and then be undone
      * without resulting into a permanent change in the solution.
      * @param scoreDirector the {@link ScoreDirector} not yet modified by the move.

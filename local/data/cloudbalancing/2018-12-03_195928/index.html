@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>2018-12-03_195928 Planner benchmark report</title>
+    <link href="twitterbootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="twitterbootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="twitterbootstrap/css/prettify.css" rel="stylesheet"/>
+    <link href="website/css/benchmarkReport.css" rel="stylesheet"/>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body onload="prettyPrint()">
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="benchmark-report-nav">
+                <div style="margin-top: 10px;">
+                    <a href="https://www.optaplanner.org">
+                        <img src="website/img/optaPlannerLogo.png" alt="OptaPlanner"/>
+                    </a>
+                </div>
+                <div style="margin-top: 10px; margin-bottom: 10px;">
+                    <ul class="nav nav-list">
+                        <li><a href="#summary">Summary</a></li>
+                        <li>
+                            <ul class="nav nav-list">
+                                <li><a href="#summary_result">Result</a></li>
+                                <li><a href="#summary_performance">Performance</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#problemBenchmarkResult">Problem benchmarks</a></li>
+                        <li>
+                            <ul class="nav nav-list">
+                                <li><a href="#problemBenchmark_100computers-002D300processes">100computers-300processes&nbsp;</a></li>
+                                <li><a href="#problemBenchmark_200computers-002D600processes">200computers-600processes&nbsp;</a></li>
+                                <li><a href="#problemBenchmark_400computers-002D1200processes">400computers-1200processes&nbsp;</a></li>
+                                <li><a href="#problemBenchmark_800computers-002D2400processes">800computers-2400processes&nbsp;</a></li>
+                                <li><a href="#problemBenchmark_1600computers-002D4800processes">1600computers-4800processes&nbsp;</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#solverBenchmarkResult">Solver benchmarks</a></li>
+                        <li>
+                            <ul class="nav nav-list">
+                                <li><a href="#solverBenchmark_First-002D0020Fit">First Fit&nbsp;        <span class="badge">4</span>
+
+</a></li>
+                                <li><a href="#solverBenchmark_First-002D0020Fit-002D0020Decreasing">First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</a></li>
+                                <li><a href="#solverBenchmark_Tabu-002D0020Search">Tabu Search&nbsp;        <span class="badge">2</span>
+
+</a></li>
+                                <li><a href="#solverBenchmark_Simulated-002D0020Annealing">Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</a></li>
+                                <li><a href="#solverBenchmark_Late-002D0020Acceptance">Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#benchmarkInformation">Benchmark information</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="span10">
+            <header class="main-page-header">
+                <h1>Benchmark report</h1>
+            </header>
+            <section id="summary">
+                <div class="page-header">
+                    <h1>Summary</h1>
+                </div>
+
+                <section id="summary_result">
+                    <h2>Result summary</h2>
+                    <div class="tabbable">
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="#summary_bestScore" data-toggle="tab">Best score</a>
+                            </li>
+                            <li>
+                                <a href="#summary_bestScoreScalability" data-toggle="tab">Best score scalability</a>
+                            </li>
+                            <li>
+                                <a href="#summary_bestScoreDistribution" data-toggle="tab">Best score distribution</a>
+                            </li>
+                            <li>
+                                <a href="#summary_winningScoreDifference" data-toggle="tab">Winning score difference</a>
+                            </li>
+                            <li>
+                                <a href="#summary_worstScoreDifferencePercentage" data-toggle="tab">Worst score difference percentage (ROI)</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="summary_bestScore">
+                                <h3>Best score summary</h3>
+                                <p>Useful for visualizing the best solver configuration.</p>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_bestScore_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_bestScore_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_bestScore_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreSummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_bestScore_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreSummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Total</th>
+                                        <th rowspan="2">Average</th>
+                                        <th rowspan="2">Standard Deviation</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                        <td>0hard/-4327290soft</td>
+                                        <td>0hard/-865458soft</td>
+                                        <td>0.0E0/782091.13</td>
+                                                        <td>0hard/-137440soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                        <td>0hard/-253960soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                        <td>0hard/-544680soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                        <td>0hard/-1115430soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                        <td>0hard/-2275780soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                        <td>0hard/-4078930soft</td>
+                                        <td>0hard/-815786soft</td>
+                                        <td>0.0E0/721646.83</td>
+                                                        <td>0hard/-132440soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                        <td>0hard/-244360soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                        <td>0hard/-529680soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                        <td>0hard/-1065950soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                        <td>0hard/-2106500soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                        <td>0hard/-3438790soft</td>
+                                        <td>0hard/-687758soft</td>
+                                        <td>0.0E0/623427.39</td>
+                                                        <td>0hard/-111090soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                        <td>0hard/-191040soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                        <td>0hard/-433080soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                        <td>0hard/-895010soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                        <td>0hard/-1808570soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                        <td>0hard/-3376730soft</td>
+                                        <td>0hard/-675346soft</td>
+                                        <td>0.0E0/605101.06</td>
+                                                        <td>0hard/-110550soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                        <td>0hard/-192520soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                        <td>0hard/-428420soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                        <td>0hard/-886890soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                        <td>0hard/-1758350soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                        <td>0hard/-3408900soft</td>
+                                        <td>0hard/-681780soft</td>
+                                        <td>0.0E0/611481.12</td>
+                                                        <td>0hard/-113390soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                        <td>0hard/-194830soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                        <td>0hard/-430940soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                        <td>0hard/-891370soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                        <td>0hard/-1778370soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="summary_bestScoreScalability">
+                                <h3>Best score scalability summary</h3>
+                                <p>Useful for visualizing the scalability of each solver configuration.</p>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_bestScoreScalability_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_bestScoreScalability_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_bestScoreScalability_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreScalabilitySummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_bestScoreScalability_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreScalabilitySummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                            </div>
+                            <div class="tab-pane" id="summary_bestScoreDistribution">
+                                <h3>Best score distribution summary</h3>
+                                <p>Useful for visualizing the reliability of each solver configuration.</p>
+                                <p>Maximum subSingle count: 1<br/></p>
+                                    <div class="alert alert-error">
+                                        <p>The benchmarker did not run multiple subSingles, so there is no distribution and therefore no reliability indication.</p>
+                                    </div>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_bestScoreDistribution_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_bestScoreDistribution_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_bestScoreDistribution_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreDistributionSummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_bestScoreDistribution_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScoreDistributionSummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                            </div>
+                            <div class="tab-pane" id="summary_winningScoreDifference">
+                                <h3>Winning score difference summary</h3>
+                                <p>Useful for zooming in on the results of the best score summary.</p>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_winningScoreDifference_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_winningScoreDifference_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_winningScoreDifference_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/winningScoreDifferenceSummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_winningScoreDifference_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/winningScoreDifferenceSummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Total</th>
+                                        <th rowspan="2">Average</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                        <td>0hard/-952040soft</td>
+                                        <td>0hard/-190408soft</td>
+                                                    <td>0hard/-26890soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0hard/-62920soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0hard/-116260soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0hard/-228540soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0hard/-517430soft&nbsp;        <span class="badge">4</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                        <td>0hard/-703680soft</td>
+                                        <td>0hard/-140736soft</td>
+                                                    <td>0hard/-21890soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0hard/-53320soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0hard/-101260soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0hard/-179060soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0hard/-348150soft&nbsp;        <span class="badge">3</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                        <td>0hard/-63540soft</td>
+                                        <td>0hard/-12708soft</td>
+                                                    <td>0hard/-540soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0hard/0soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0hard/-4660soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0hard/-8120soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0hard/-50220soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                        <td>0hard/-1480soft</td>
+                                        <td>0hard/-296soft</td>
+                                                    <td>0hard/0soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0hard/-1480soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0hard/0soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0hard/0soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0hard/0soft&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                        <td>0hard/-33650soft</td>
+                                        <td>0hard/-6730soft</td>
+                                                    <td>0hard/-2840soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0hard/-3790soft&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0hard/-2520soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0hard/-4480soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0hard/-20020soft&nbsp;        <span class="badge">1</span>
+
+</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="summary_worstScoreDifferencePercentage">
+                                <h3>Worst score difference percentage summary (ROI)</h3>
+                                <p>Useful for visualizing the return on investment (ROI) to decision makers.</p>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_worstScoreDifferencePercentage_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_worstScoreDifferencePercentage_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_worstScoreDifferencePercentage_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/worstScoreDifferencePercentageSummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_worstScoreDifferencePercentage_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/worstScoreDifferencePercentageSummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Average</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                            <td>0.00%/0.00%</td>
+                                                    <td>0.00%/0.00%&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0.00%/0.00%&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0.00%/0.00%&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0.00%/0.00%&nbsp;        <span class="badge">4</span>
+
+</td>
+                                                    <td>0.00%/0.00%&nbsp;        <span class="badge">4</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                            <td>0.00%/4.41%</td>
+                                                    <td>0.00%/3.64%&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0.00%/3.78%&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0.00%/2.75%&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0.00%/4.44%&nbsp;        <span class="badge">3</span>
+
+</td>
+                                                    <td>0.00%/7.44%&nbsp;        <span class="badge">3</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                            <td>0.00%/20.95%</td>
+                                                    <td>0.00%/19.17%&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0.00%/24.78%&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0.00%/20.49%&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0.00%/19.76%&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0.00%/20.53%&nbsp;        <span class="badge">2</span>
+
+</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                            <td>0.00%/21.67%</td>
+                                                    <td>0.00%/19.56%&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0.00%/24.19%&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0.00%/21.34%&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0.00%/20.49%&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                                    <td>0.00%/22.74%&nbsp;        <span class="badge badge-success">0</span>
+
+</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                            <td>0.00%/20.72%</td>
+                                                    <td>0.00%/17.50%&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0.00%/23.28%&nbsp;        <span class="badge">2</span>
+
+</td>
+                                                    <td>0.00%/20.88%&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0.00%/20.09%&nbsp;        <span class="badge">1</span>
+
+</td>
+                                                    <td>0.00%/21.86%&nbsp;        <span class="badge">1</span>
+
+</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="summary_performance">
+                    <h2>Performance summary</h2>
+                    <div class="tabbable">
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="#summary_scoreCalculationSpeed" data-toggle="tab">Score calculation speed</a>
+                            </li>
+                            <li>
+                                <a href="#summary_worstScoreCalculationSpeedDifferencePercentage" data-toggle="tab">Worst score calculation speed difference percentage</a>
+                            </li>
+                            <li>
+                                <a href="#summary_timeSpent" data-toggle="tab">Time spent</a>
+                            </li>
+                            <li>
+                                <a href="#summary_timeSpentScalability" data-toggle="tab">Time spent scalability</a>
+                            </li>
+                            <li>
+                                <a href="#summary_bestScorePerTimeSpent" data-toggle="tab">Best score per time spent</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="summary_scoreCalculationSpeed">
+                                <h3>Score calculation speed summary</h3>
+                                <p>
+                                    Useful for comparing different score calculators and/or score rule implementations
+                                    (presuming that the solver configurations do not differ otherwise).
+                                    Also useful to measure the scalability cost of an extra constraint.
+                                </p>
+                                <div class="benchmark-chart">
+                                    <img src="summary/scoreCalculationSpeedSummary.png"/>
+                                </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Average</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="problemScale">Problem scale</th>
+                                        <td class="problemScale">2,046,000</td>
+                                        <td class="problemScale">30,000</td>
+                                        <td class="problemScale">120,000</td>
+                                        <td class="problemScale">480,000</td>
+                                        <td class="problemScale">1,920,000</td>
+                                        <td class="problemScale">7,680,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                        <td>119,016/s</td>
+                                                        <td>29,989/s</td>
+                                                        <td>107,016/s</td>
+                                                        <td>159,665/s</td>
+                                                        <td>159,004/s</td>
+                                                        <td>139,408/s</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                        <td>122,131/s</td>
+                                                        <td>34,494/s</td>
+                                                        <td>127,979/s</td>
+                                                        <td>155,668/s</td>
+                                                        <td>157,601/s</td>
+                                                        <td>134,915/s</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                        <td>58,934/s</td>
+                                                        <td>63,854/s</td>
+                                                        <td>59,401/s</td>
+                                                        <td>56,765/s</td>
+                                                        <td>54,869/s</td>
+                                                        <td>59,785/s</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                        <td>48,028/s</td>
+                                                        <td>57,552/s</td>
+                                                        <td>53,506/s</td>
+                                                        <td>49,069/s</td>
+                                                        <td>40,269/s</td>
+                                                        <td>39,748/s</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                        <td>47,916/s</td>
+                                                        <td>58,226/s</td>
+                                                        <td>54,227/s</td>
+                                                        <td>49,133/s</td>
+                                                        <td>39,914/s</td>
+                                                        <td>38,082/s</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="summary_worstScoreCalculationSpeedDifferencePercentage">
+                                <h3>Worst score calculation speed difference percentage</h3>
+                                <p>
+                                    Useful for comparing different score calculators and/or score rule implementations
+                                    (presuming that the solver configurations do not differ otherwise).
+                                    Also useful to measure the scalability cost of an extra constraint.
+                                </p>
+                                <div class="benchmark-chart">
+                                    <img src="summary/worstScoreCalculationSpeedDifferencePercentageSummary.png"/>
+                                </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Average</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                            <td>177.97%</td>
+                                                    <td>0.00%</td>
+                                                    <td>100.01%</td>
+                                                    <td>225.39%</td>
+                                                    <td>298.37%</td>
+                                                    <td>266.07%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                            <td>184.12%</td>
+                                                    <td>15.02%</td>
+                                                    <td>139.19%</td>
+                                                    <td>217.24%</td>
+                                                    <td>294.85%</td>
+                                                    <td>254.27%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                            <td>46.82%</td>
+                                                    <td>112.92%</td>
+                                                    <td>11.02%</td>
+                                                    <td>15.68%</td>
+                                                    <td>37.47%</td>
+                                                    <td>56.99%</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                            <td>19.43%</td>
+                                                    <td>91.91%</td>
+                                                    <td>0.00%</td>
+                                                    <td>0.00%</td>
+                                                    <td>0.89%</td>
+                                                    <td>4.37%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                            <td>19.13%</td>
+                                                    <td>94.16%</td>
+                                                    <td>1.35%</td>
+                                                    <td>0.13%</td>
+                                                    <td>0.00%</td>
+                                                    <td>0.00%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="summary_timeSpent">
+                                <h3>Time spent summary</h3>
+                                <p>Useful for visualizing the performance of construction heuristics (presuming that no other solver phases are configured).</p>
+                                <div class="benchmark-chart">
+                                    <img src="summary/timeSpentSummary.png"/>
+                                </div>
+                                <table class="benchmark-table table table-striped table-bordered">
+                                    <tr>
+                                        <th rowspan="2">Solver</th>
+                                        <th rowspan="2">Average</th>
+                                        <th colspan="5">Problem</th>
+                                    </tr>
+                                    <tr>
+                                        <th>100computers-300processes</th>
+                                        <th>200computers-600processes</th>
+                                        <th>400computers-1200processes</th>
+                                        <th>800computers-2400processes</th>
+                                        <th>1600computers-4800processes</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="problemScale">Problem scale</th>
+                                        <td class="problemScale">2,046,000</td>
+                                        <td class="problemScale">30,000</td>
+                                        <td class="problemScale">120,000</td>
+                                        <td class="problemScale">480,000</td>
+                                        <td class="problemScale">1,920,000</td>
+                                        <td class="problemScale">7,680,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit&nbsp;        <span class="badge">4</span>
+
+</th>
+                                        <td>9,051</td>
+                                                        <td>653</td>
+                                                        <td>741</td>
+                                                        <td>1,897</td>
+                                                        <td>7,643</td>
+                                                        <td>34,324</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</th>
+                                        <td>9,219</td>
+                                                        <td>592</td>
+                                                        <td>631</td>
+                                                        <td>1,970</td>
+                                                        <td>7,612</td>
+                                                        <td>35,291</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</th>
+                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                    </tr>
+                                    <tr class="favoriteSolverBenchmark">
+                                        <th>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</th>
+                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</th>
+                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                                        <td>300,000</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="summary_timeSpentScalability">
+                                <h3>Time spent scalability summary</h3>
+                                <p>Useful for extrapolating the scalability of construction heuristics (presuming that no other solver phases are configured).</p>
+                                <div class="benchmark-chart">
+                                    <img src="summary/timeSpentScalabilitySummary.png"/>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="summary_bestScorePerTimeSpent">
+                                <h3>Best score per time spent summary</h3>
+                                <p>Useful for visualizing trade-off between the best score versus the time spent for construction heuristics (presuming that no other solver phases are configured).</p>
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#summary_bestScorePerTimeSpent_chart_0" data-toggle="tab">Hard score</a>
+            </li>
+            <li class="active">
+                <a href="#summary_bestScorePerTimeSpent_chart_1" data-toggle="tab">Soft score</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="summary_bestScorePerTimeSpent_chart_0">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScorePerTimeSpentSummaryLevel0.png"/>
+                </div>
+            </div>
+            <div class="tab-pane active" id="summary_bestScorePerTimeSpent_chart_1">
+                <div class="benchmark-chart">
+                    <img src="summary/bestScorePerTimeSpentSummaryLevel1.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="problemBenchmarkResult">
+                <div class="page-header">
+                    <h1>Problem benchmarks</h1>
+                </div>
+                <section id="problemBenchmark_100computers-002D300processes">
+                    <h2>100computers-300processes</h2>
+                    <p>
+                        Entity count: 300<br/>
+                        Variable count: 300<br/>
+                        Maximum value count: 100<br/>
+                        Problem scale: 30,000
+                    </p>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#problemStatistic_100computers-002D300processes_BEST_SCORE" data-toggle="tab">Best score</a>
+                                    </li>
+                            </ul>
+                            <div class="tab-content">
+                                    <div class="tab-pane active" id="problemStatistic_100computers-002D300processes_BEST_SCORE">
+                                                <div class="tabbable tabs-right">
+                                                    <ul class="nav nav-tabs">
+                                                            <li>
+                                                                <a href="#problemStatistic_100computers-002D300processes_BEST_SCORE_0" data-toggle="tab">Hard score</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="#problemStatistic_100computers-002D300processes_BEST_SCORE_1" data-toggle="tab">Soft score</a>
+                                                            </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                            <div class="tab-pane" id="problemStatistic_100computers-002D300processes_BEST_SCORE_0">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="100computers-300processes/100computers-300processesBestScoreStatisticLevel0.png"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane active" id="problemStatistic_100computers-002D300processes_BEST_SCORE_1">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="100computers-300processes/100computers-300processesBestScoreStatisticLevel1.png"/>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <span>CSV files per solver:</span>
+                                            <div class="btn-group download-btn-group">
+                                                <button class="btn" onclick="window.location.href='100computers-300processes/First Fit/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='100computers-300processes/First Fit Decreasing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='100computers-300processes/Tabu Search/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='100computers-300processes/Simulated Annealing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='100computers-300processes/Late Acceptance/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                </section>
+                <section id="problemBenchmark_200computers-002D600processes">
+                    <h2>200computers-600processes</h2>
+                    <p>
+                        Entity count: 600<br/>
+                        Variable count: 600<br/>
+                        Maximum value count: 200<br/>
+                        Problem scale: 120,000
+                    </p>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#problemStatistic_200computers-002D600processes_BEST_SCORE" data-toggle="tab">Best score</a>
+                                    </li>
+                            </ul>
+                            <div class="tab-content">
+                                    <div class="tab-pane active" id="problemStatistic_200computers-002D600processes_BEST_SCORE">
+                                                <div class="tabbable tabs-right">
+                                                    <ul class="nav nav-tabs">
+                                                            <li>
+                                                                <a href="#problemStatistic_200computers-002D600processes_BEST_SCORE_0" data-toggle="tab">Hard score</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="#problemStatistic_200computers-002D600processes_BEST_SCORE_1" data-toggle="tab">Soft score</a>
+                                                            </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                            <div class="tab-pane" id="problemStatistic_200computers-002D600processes_BEST_SCORE_0">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="200computers-600processes/200computers-600processesBestScoreStatisticLevel0.png"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane active" id="problemStatistic_200computers-002D600processes_BEST_SCORE_1">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="200computers-600processes/200computers-600processesBestScoreStatisticLevel1.png"/>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <span>CSV files per solver:</span>
+                                            <div class="btn-group download-btn-group">
+                                                <button class="btn" onclick="window.location.href='200computers-600processes/First Fit/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='200computers-600processes/First Fit Decreasing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='200computers-600processes/Tabu Search/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='200computers-600processes/Simulated Annealing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='200computers-600processes/Late Acceptance/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                </section>
+                <section id="problemBenchmark_400computers-002D1200processes">
+                    <h2>400computers-1200processes</h2>
+                    <p>
+                        Entity count: 1,200<br/>
+                        Variable count: 1,200<br/>
+                        Maximum value count: 400<br/>
+                        Problem scale: 480,000
+                    </p>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#problemStatistic_400computers-002D1200processes_BEST_SCORE" data-toggle="tab">Best score</a>
+                                    </li>
+                            </ul>
+                            <div class="tab-content">
+                                    <div class="tab-pane active" id="problemStatistic_400computers-002D1200processes_BEST_SCORE">
+                                                <div class="tabbable tabs-right">
+                                                    <ul class="nav nav-tabs">
+                                                            <li>
+                                                                <a href="#problemStatistic_400computers-002D1200processes_BEST_SCORE_0" data-toggle="tab">Hard score</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="#problemStatistic_400computers-002D1200processes_BEST_SCORE_1" data-toggle="tab">Soft score</a>
+                                                            </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                            <div class="tab-pane" id="problemStatistic_400computers-002D1200processes_BEST_SCORE_0">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="400computers-1200processes/400computers-1200processesBestScoreStatisticLevel0.png"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane active" id="problemStatistic_400computers-002D1200processes_BEST_SCORE_1">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="400computers-1200processes/400computers-1200processesBestScoreStatisticLevel1.png"/>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <span>CSV files per solver:</span>
+                                            <div class="btn-group download-btn-group">
+                                                <button class="btn" onclick="window.location.href='400computers-1200processes/First Fit/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='400computers-1200processes/First Fit Decreasing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='400computers-1200processes/Tabu Search/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='400computers-1200processes/Simulated Annealing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='400computers-1200processes/Late Acceptance/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                </section>
+                <section id="problemBenchmark_800computers-002D2400processes">
+                    <h2>800computers-2400processes</h2>
+                    <p>
+                        Entity count: 2,400<br/>
+                        Variable count: 2,400<br/>
+                        Maximum value count: 800<br/>
+                        Problem scale: 1,920,000
+                    </p>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#problemStatistic_800computers-002D2400processes_BEST_SCORE" data-toggle="tab">Best score</a>
+                                    </li>
+                            </ul>
+                            <div class="tab-content">
+                                    <div class="tab-pane active" id="problemStatistic_800computers-002D2400processes_BEST_SCORE">
+                                                <div class="tabbable tabs-right">
+                                                    <ul class="nav nav-tabs">
+                                                            <li>
+                                                                <a href="#problemStatistic_800computers-002D2400processes_BEST_SCORE_0" data-toggle="tab">Hard score</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="#problemStatistic_800computers-002D2400processes_BEST_SCORE_1" data-toggle="tab">Soft score</a>
+                                                            </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                            <div class="tab-pane" id="problemStatistic_800computers-002D2400processes_BEST_SCORE_0">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="800computers-2400processes/800computers-2400processesBestScoreStatisticLevel0.png"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane active" id="problemStatistic_800computers-002D2400processes_BEST_SCORE_1">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="800computers-2400processes/800computers-2400processesBestScoreStatisticLevel1.png"/>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <span>CSV files per solver:</span>
+                                            <div class="btn-group download-btn-group">
+                                                <button class="btn" onclick="window.location.href='800computers-2400processes/First Fit/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='800computers-2400processes/First Fit Decreasing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='800computers-2400processes/Tabu Search/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='800computers-2400processes/Simulated Annealing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='800computers-2400processes/Late Acceptance/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                </section>
+                <section id="problemBenchmark_1600computers-002D4800processes">
+                    <h2>1600computers-4800processes</h2>
+                    <p>
+                        Entity count: 4,800<br/>
+                        Variable count: 4,800<br/>
+                        Maximum value count: 1,600<br/>
+                        Problem scale: 7,680,000
+                    </p>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#problemStatistic_1600computers-002D4800processes_BEST_SCORE" data-toggle="tab">Best score</a>
+                                    </li>
+                            </ul>
+                            <div class="tab-content">
+                                    <div class="tab-pane active" id="problemStatistic_1600computers-002D4800processes_BEST_SCORE">
+                                                <div class="tabbable tabs-right">
+                                                    <ul class="nav nav-tabs">
+                                                            <li>
+                                                                <a href="#problemStatistic_1600computers-002D4800processes_BEST_SCORE_0" data-toggle="tab">Hard score</a>
+                                                            </li>
+                                                            <li class="active">
+                                                                <a href="#problemStatistic_1600computers-002D4800processes_BEST_SCORE_1" data-toggle="tab">Soft score</a>
+                                                            </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                            <div class="tab-pane" id="problemStatistic_1600computers-002D4800processes_BEST_SCORE_0">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="1600computers-4800processes/1600computers-4800processesBestScoreStatisticLevel0.png"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane active" id="problemStatistic_1600computers-002D4800processes_BEST_SCORE_1">
+                                                                <div class="benchmark-chart">
+                                                                    <img src="1600computers-4800processes/1600computers-4800processesBestScoreStatisticLevel1.png"/>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <span>CSV files per solver:</span>
+                                            <div class="btn-group download-btn-group">
+                                                <button class="btn" onclick="window.location.href='1600computers-4800processes/First Fit/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='1600computers-4800processes/First Fit Decreasing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='1600computers-4800processes/Tabu Search/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='1600computers-4800processes/Simulated Annealing/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                                <button class="btn" onclick="window.location.href='1600computers-4800processes/Late Acceptance/sub0/BEST_SCORE.csv'"><i class="icon-download"></i></button>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                </section>
+            </section>
+
+            <section id="solverBenchmarkResult">
+                <div class="page-header">
+                    <h1>Solver benchmarks</h1>
+                </div>
+                <section id="solverBenchmark_First-002D0020Fit">
+                    <h2>First Fit&nbsp;        <span class="badge">4</span>
+
+</h2>
+                    <button class="btn showSolverConfiguration" data-toggle="collapse" data-target="#solverBenchmark_First-002D0020Fit_config">
+                        Show/hide Solver configuration
+                    </button>
+                    <div id="solverBenchmark_First-002D0020Fit_config" class="collapse in">
+                        <pre class="prettyprint lang-xml">&lt;solver&gt;
+  &lt;solutionClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudBalance&lt;/solutionClass&gt;
+  &lt;entityClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudProcess&lt;/entityClass&gt;
+  &lt;scoreDirectorFactory&gt;
+    &lt;scoreDrl&gt;org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl&lt;/scoreDrl&gt;
+    &lt;initializingScoreTrend&gt;ONLY_DOWN/ONLY_DOWN&lt;/initializingScoreTrend&gt;
+  &lt;/scoreDirectorFactory&gt;
+  &lt;termination&gt;
+    &lt;minutesSpentLimit&gt;5&lt;/minutesSpentLimit&gt;
+  &lt;/termination&gt;
+  &lt;constructionHeuristic&gt;
+    &lt;constructionHeuristicType&gt;FIRST_FIT&lt;/constructionHeuristicType&gt;
+  &lt;/constructionHeuristic&gt;
+&lt;/solver&gt;</pre>
+                    </div>
+                </section>
+                <section id="solverBenchmark_First-002D0020Fit-002D0020Decreasing">
+                    <h2>First Fit Decreasing&nbsp;        <span class="badge">3</span>
+
+</h2>
+                    <button class="btn showSolverConfiguration" data-toggle="collapse" data-target="#solverBenchmark_First-002D0020Fit-002D0020Decreasing_config">
+                        Show/hide Solver configuration
+                    </button>
+                    <div id="solverBenchmark_First-002D0020Fit-002D0020Decreasing_config" class="collapse in">
+                        <pre class="prettyprint lang-xml">&lt;solver&gt;
+  &lt;solutionClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudBalance&lt;/solutionClass&gt;
+  &lt;entityClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudProcess&lt;/entityClass&gt;
+  &lt;scoreDirectorFactory&gt;
+    &lt;scoreDrl&gt;org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl&lt;/scoreDrl&gt;
+    &lt;initializingScoreTrend&gt;ONLY_DOWN/ONLY_DOWN&lt;/initializingScoreTrend&gt;
+  &lt;/scoreDirectorFactory&gt;
+  &lt;termination&gt;
+    &lt;minutesSpentLimit&gt;5&lt;/minutesSpentLimit&gt;
+  &lt;/termination&gt;
+  &lt;constructionHeuristic&gt;
+    &lt;constructionHeuristicType&gt;FIRST_FIT_DECREASING&lt;/constructionHeuristicType&gt;
+  &lt;/constructionHeuristic&gt;
+&lt;/solver&gt;</pre>
+                    </div>
+                </section>
+                <section id="solverBenchmark_Tabu-002D0020Search">
+                    <h2>Tabu Search&nbsp;        <span class="badge">2</span>
+
+</h2>
+                    <button class="btn showSolverConfiguration" data-toggle="collapse" data-target="#solverBenchmark_Tabu-002D0020Search_config">
+                        Show/hide Solver configuration
+                    </button>
+                    <div id="solverBenchmark_Tabu-002D0020Search_config" class="collapse in">
+                        <pre class="prettyprint lang-xml">&lt;solver&gt;
+  &lt;solutionClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudBalance&lt;/solutionClass&gt;
+  &lt;entityClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudProcess&lt;/entityClass&gt;
+  &lt;scoreDirectorFactory&gt;
+    &lt;scoreDrl&gt;org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl&lt;/scoreDrl&gt;
+    &lt;initializingScoreTrend&gt;ONLY_DOWN/ONLY_DOWN&lt;/initializingScoreTrend&gt;
+  &lt;/scoreDirectorFactory&gt;
+  &lt;termination&gt;
+    &lt;minutesSpentLimit&gt;5&lt;/minutesSpentLimit&gt;
+  &lt;/termination&gt;
+  &lt;constructionHeuristic&gt;
+    &lt;constructionHeuristicType&gt;FIRST_FIT_DECREASING&lt;/constructionHeuristicType&gt;
+  &lt;/constructionHeuristic&gt;
+  &lt;localSearch&gt;
+    &lt;unionMoveSelector&gt;
+      &lt;changeMoveSelector/&gt;
+      &lt;swapMoveSelector/&gt;
+      &lt;pillarChangeMoveSelector/&gt;
+      &lt;pillarSwapMoveSelector/&gt;
+    &lt;/unionMoveSelector&gt;
+    &lt;acceptor&gt;
+      &lt;entityTabuSize&gt;7&lt;/entityTabuSize&gt;
+    &lt;/acceptor&gt;
+    &lt;forager&gt;
+      &lt;acceptedCountLimit&gt;1000&lt;/acceptedCountLimit&gt;
+    &lt;/forager&gt;
+  &lt;/localSearch&gt;
+&lt;/solver&gt;</pre>
+                    </div>
+                </section>
+                <section id="solverBenchmark_Simulated-002D0020Annealing">
+                    <h2>Simulated Annealing&nbsp;        <span class="badge badge-success">0</span>
+
+</h2>
+                    <button class="btn showSolverConfiguration" data-toggle="collapse" data-target="#solverBenchmark_Simulated-002D0020Annealing_config">
+                        Show/hide Solver configuration
+                    </button>
+                    <div id="solverBenchmark_Simulated-002D0020Annealing_config" class="collapse in">
+                        <pre class="prettyprint lang-xml">&lt;solver&gt;
+  &lt;solutionClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudBalance&lt;/solutionClass&gt;
+  &lt;entityClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudProcess&lt;/entityClass&gt;
+  &lt;scoreDirectorFactory&gt;
+    &lt;scoreDrl&gt;org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl&lt;/scoreDrl&gt;
+    &lt;initializingScoreTrend&gt;ONLY_DOWN/ONLY_DOWN&lt;/initializingScoreTrend&gt;
+  &lt;/scoreDirectorFactory&gt;
+  &lt;termination&gt;
+    &lt;minutesSpentLimit&gt;5&lt;/minutesSpentLimit&gt;
+  &lt;/termination&gt;
+  &lt;constructionHeuristic&gt;
+    &lt;constructionHeuristicType&gt;FIRST_FIT_DECREASING&lt;/constructionHeuristicType&gt;
+  &lt;/constructionHeuristic&gt;
+  &lt;localSearch&gt;
+    &lt;unionMoveSelector&gt;
+      &lt;changeMoveSelector/&gt;
+      &lt;swapMoveSelector/&gt;
+      &lt;pillarChangeMoveSelector/&gt;
+      &lt;pillarSwapMoveSelector/&gt;
+    &lt;/unionMoveSelector&gt;
+    &lt;acceptor&gt;
+      &lt;simulatedAnnealingStartingTemperature&gt;0hard/400soft&lt;/simulatedAnnealingStartingTemperature&gt;
+    &lt;/acceptor&gt;
+    &lt;forager&gt;
+      &lt;acceptedCountLimit&gt;4&lt;/acceptedCountLimit&gt;
+    &lt;/forager&gt;
+  &lt;/localSearch&gt;
+&lt;/solver&gt;</pre>
+                    </div>
+                </section>
+                <section id="solverBenchmark_Late-002D0020Acceptance">
+                    <h2>Late Acceptance&nbsp;        <span class="badge">1</span>
+
+</h2>
+                    <button class="btn showSolverConfiguration" data-toggle="collapse" data-target="#solverBenchmark_Late-002D0020Acceptance_config">
+                        Show/hide Solver configuration
+                    </button>
+                    <div id="solverBenchmark_Late-002D0020Acceptance_config" class="collapse in">
+                        <pre class="prettyprint lang-xml">&lt;solver&gt;
+  &lt;solutionClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudBalance&lt;/solutionClass&gt;
+  &lt;entityClass&gt;org.optaplanner.examples.cloudbalancing.domain.CloudProcess&lt;/entityClass&gt;
+  &lt;scoreDirectorFactory&gt;
+    &lt;scoreDrl&gt;org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl&lt;/scoreDrl&gt;
+    &lt;initializingScoreTrend&gt;ONLY_DOWN/ONLY_DOWN&lt;/initializingScoreTrend&gt;
+  &lt;/scoreDirectorFactory&gt;
+  &lt;termination&gt;
+    &lt;minutesSpentLimit&gt;5&lt;/minutesSpentLimit&gt;
+  &lt;/termination&gt;
+  &lt;constructionHeuristic&gt;
+    &lt;constructionHeuristicType&gt;FIRST_FIT_DECREASING&lt;/constructionHeuristicType&gt;
+  &lt;/constructionHeuristic&gt;
+  &lt;localSearch&gt;
+    &lt;unionMoveSelector&gt;
+      &lt;changeMoveSelector/&gt;
+      &lt;swapMoveSelector/&gt;
+      &lt;pillarChangeMoveSelector/&gt;
+      &lt;pillarSwapMoveSelector/&gt;
+    &lt;/unionMoveSelector&gt;
+    &lt;acceptor&gt;
+      &lt;lateAcceptanceSize&gt;400&lt;/lateAcceptanceSize&gt;
+    &lt;/acceptor&gt;
+    &lt;forager&gt;
+      &lt;acceptedCountLimit&gt;4&lt;/acceptedCountLimit&gt;
+    &lt;/forager&gt;
+  &lt;/localSearch&gt;
+&lt;/solver&gt;</pre>
+                    </div>
+                </section>
+            </section>
+
+            <section id="benchmarkInformation">
+                <div class="page-header">
+                    <h1>Benchmark information</h1>
+                </div>
+                <table class="benchmark-table table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <td>2018-12-03_195928</td>
+                    </tr>
+                    <tr>
+                        <th>Aggregation</th>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <th>Failure count</th>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <th>Starting timestamp</th>
+                        <td>2018-12-3 19:59:28</td>
+                    </tr>
+                    <tr>
+                        <th>Warm up time spent</th>
+                            <td>30 ms</td>
+                    </tr>
+                    <tr>
+                        <th>Parallel benchmark count / available processors</th>
+                            <td>4 / 6</td>
+                    </tr>
+                    <tr>
+                        <th>Benchmark time spent</th>
+                            <td>1,237,275 ms</td>
+                    </tr>
+                    <tr>
+                        <th>Environment mode</th>
+                        <td>REPRODUCIBLE</td>
+                    </tr>
+                    <tr>
+                        <th>Logging level org.optaplanner.core</th>
+                        <td>debug</td>
+                    </tr>
+                    <tr>
+                        <th>Logging level org.drools.core</th>
+                        <td>warn</td>
+                    </tr>
+                    <tr>
+                        <th>Solver ranking class</th>
+                        <td>
+                            <span data-toggle="tooltip" title="org.optaplanner.benchmark.impl.ranking.TotalScoreSolverRankingComparator">
+                                TotalScoreSolverRankingComparator
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>VM max memory (as in -Xmx but lower)</th>
+                            <td>3,804,758,016 bytes</td>
+                    </tr>
+                    <tr>
+                        <th>OptaPlanner version</th>
+                        <td>Unjarred development snapshot</td>
+                    </tr>
+                    <tr>
+                        <th>Java version</th>
+                        <td>Java 1.8.0_171 (Oracle Corporation)</td>
+                    </tr>
+                    <tr>
+                        <th>Java VM</th>
+                        <td>Java Java HotSpot(TM) 64-Bit Server VM 25.171-b11 (Oracle Corporation)</td>
+                    </tr>
+                    <tr>
+                        <th>Operating system</th>
+                        <td>Windows 10 amd64 10.0</td>
+                    </tr>
+                    <tr>
+                        <th>Report locale</th>
+                        <td>zh_CN</td>
+                    </tr>
+                    <tr>
+                        <th>Report timezone</th>
+                        <td>Asia/Shanghai</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="twitterbootstrap/js/jquery.js"></script>
+<script src="twitterbootstrap/js/bootstrap.js"></script>
+<script src="twitterbootstrap/js/prettify.js"></script>
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+</html>

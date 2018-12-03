@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.optaplanner.core.config.solver.EnvironmentMode;
 import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
 import org.optaplanner.examples.common.app.SolverPerformanceTest;
-
+//云平衡性能测试
 public class CloudBalancingPerformanceTest extends SolverPerformanceTest<CloudBalance> {
 
     public CloudBalancingPerformanceTest(String moveThreadCount) {

@@ -49,31 +49,36 @@ public class CloudBalancingDaemonTest extends LoggingTest {
 
     @Test(timeout = 600000)
     public void daemon() throws InterruptedException {
-        // In main thread
+        //在主线程中
         Solver<CloudBalance> solver = buildSolver();
         CloudBalance cloudBalance = buildProblem(4, 12);
         SolverThread solverThread = new SolverThread(solver, cloudBalance);
         solverThread.start();
-        // Wait for the solver thread to start up
+        //等待解算器线程启动
         waitForNextStage();
 
         // Give the solver thread a chance to terminate and get into the daemon waiting state
+        ////为解算器线程提供终止并进入守护进程等待状态的机会
         Thread.sleep(500);
         for (int i = 0; i < 8; i++) {
             CloudProcess process = notYetAddedProcessQueue.poll();
             solver.addProblemFactChange(new AddProcessProblemFactChange(process));
         }
         // Wait until those AddProcessChanges are processed
+        ////等到处理完这些AddProcessChanges
         waitForNextStage();
         assertEquals(8, (solver.getBestSolution()).getProcessList().size());
 
         // Give the solver thread some time to solve, terminate and get into the daemon waiting state
+        ////给求解器线程一些时间来解决，终止并进入守护进程等待状态
         Thread.sleep(1000);
         while (!notYetAddedProcessQueue.isEmpty()) {
             CloudProcess process = notYetAddedProcessQueue.poll();
             solver.addProblemFactChange(new AddProcessProblemFactChange(process));
         }
         // Wait until those AddProcessChanges are processed
+        //等到处理完AddProcessChanges
+
         waitForNextStage();
 
         solver.terminateEarly();
