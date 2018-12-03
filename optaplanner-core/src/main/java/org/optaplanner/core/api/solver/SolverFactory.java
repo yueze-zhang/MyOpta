@@ -41,6 +41,7 @@ public abstract class SolverFactory<Solution_> {
 
     // ************************************************************************
     // Static creation methods: XML
+    // 静态创建方法：XML
     // ************************************************************************
 
     /**
@@ -62,6 +63,7 @@ public abstract class SolverFactory<Solution_> {
      * as defined by {@link ClassLoader#getResource(String)}
      * @return never null
      */
+    //
     public static <Solution_> SolverFactory<Solution_> createFromKieContainerXmlResource(
             ReleaseId releaseId, String solverConfigResource) {
         KieContainer kieContainer = KieServices.Factory.get().newKieContainer(releaseId);
@@ -85,6 +87,8 @@ public abstract class SolverFactory<Solution_> {
      * as defined by {@link ClassLoader#getResource(String)}
      * @return never null
      */
+
+    // 传入XML地址，在实例里用的是这个构造函数
     public static <Solution_> SolverFactory<Solution_> createFromXmlResource(String solverConfigResource) {
         return new XStreamXmlSolverFactory<Solution_>()
                 .configure(solverConfigResource);

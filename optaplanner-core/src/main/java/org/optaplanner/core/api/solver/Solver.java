@@ -71,7 +71,7 @@ public interface Solver<Solution_> {
            *此方法是线程安全的。
            * @return永远不会为null，但它可以返回未初始化的{@link PlanningSolution}，其中{@link Score}为null。
           */
-    Solution_ getBestSolution();
+    Solution_ getBestSolution();//得到最佳结果
 
     /**
      * Returns the {@link Score} of the {@link #getBestSolution()}.
@@ -82,7 +82,7 @@ public interface Solver<Solution_> {
      * This method is thread-safe.
      * @return null if the {@link PlanningSolution} is still uninitialized
      */
-    Score getBestScore();
+    Score getBestScore();//得到最好分数
 
     /**
      * Returns a diagnostic text that explains the {@link #getBestSolution()} through the {@link ConstraintMatch} API
@@ -112,7 +112,7 @@ public interface Solver<Solution_> {
      * This method is thread-safe.
      * @return the amount of milliseconds spent solving since the last (re)start, at least 0
      */
-    long getTimeMillisSpent();
+    long getTimeMillisSpent(); //解决规划问题并返回遇到的最佳解决方案（可能是也可能不是最佳的，可行的，甚至是初始化的）。
 
     /**
      * Solves the planning problem and returns the best solution encountered
@@ -132,7 +132,7 @@ public interface Solver<Solution_> {
      * @return true if the {@link #solve} method is still running.
      */
     boolean isSolving();
-
+    //通知解算器它应该尽早停止。 此方法立即返回，但需要一个不确定的时间
     /**
      * Notifies the solver that it should stop at its earliest convenience.
      * This method returns immediately, but it takes an undetermined time

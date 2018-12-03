@@ -4,13 +4,14 @@
     <list default="true" id="5287cd41-079e-4dcb-addd-7928126e16d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/score/director/ScoreDirectorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/score/director/ScoreDirectorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/SolverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/SolverFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/XStreamXmlSolverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/XStreamXmlSolverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/app/CommonApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/app/CommonApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/business/SolutionBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/business/SolutionBusiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel$CloudProcessAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel$CloudProcessAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/common/app/CommonApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/common/app/CommonApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/common/business/SolutionBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/optaplanner/examples/common/business/SolutionBusiness.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,93 +62,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CloudBalancingHelloWorld.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingHelloWorld.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="42" column="75" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CloudBalancingApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="39" column="36" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="36" />
+            <state relative-caret-position="422">
+              <caret line="54" column="40" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/app/CommonApp.java">
+      <file leaf-file-name="CloudBalancingHelloWorld.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingHelloWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
-              <folding>
-                <element signature="e#4327#4328#0" expanded="true" />
-                <element signature="e#4359#4360#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="320">
+              <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Window.java" pinned="false" current-in-tab="true">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/awt/Window.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="1012" column="16" selection-start-line="1012" selection-start-column="16" selection-end-line="1012" selection-end-column="16" />
-              <folding>
-                <element signature="e#35456#35457#0" expanded="true" />
-                <element signature="e#35491#35492#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolverAndPersistenceFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/swingui/SolverAndPersistenceFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolutionPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/swingui/SolutionPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolutionBusiness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/business/SolutionBusiness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-              <folding>
-                <element signature="docComment;class#SolutionBusiness#0" />
-                <element signature="e#3873#3874#0" expanded="true" />
-                <element signature="e#3903#3904#0" expanded="true" />
-                <element signature="e#4695#4696#0" expanded="true" />
-                <element signature="e#4737#4738#0" expanded="true" />
-                <element signature="e#7864#7865#0" expanded="true" />
-                <element signature="e#7920#7921#0" expanded="true" />
-                <element signature="e#12313#12314#0" expanded="true" />
-                <element signature="e#12357#12358#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Solver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Solver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="208" column="11" selection-start-line="208" selection-start-column="11" selection-end-line="208" selection-end-column="11" />
+            <state relative-caret-position="440">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="100" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cloudBalancingSolverConfig.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SolverFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/SolverFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="236" column="38" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XStreamXmlSolverFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/XStreamXmlSolverFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="55" column="44" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractSolverFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/AbstractSolverFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="742">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptaPlannerExamplesApp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/app/OptaPlannerExamplesApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -179,11 +164,13 @@
         <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.form" />
         <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/CloudBalancingPanel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/app/CommonApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/business/SolutionBusiness.java" />
-        <option value="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java" />
         <option value="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/score/director/ScoreDirectorFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java" />
+        <option value="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/SolverFactory.java" />
+        <option value="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/XStreamXmlSolverFactory.java" />
+        <option value="$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java" />
       </list>
     </option>
   </component>
@@ -212,7 +199,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="833" />
     <option name="width" value="854" />
     <option name="height" value="1027" />
@@ -225,6 +212,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,6 +254,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
               <item name="cloudbalancing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,6 +274,37 @@
               <item name="examples" type="462c0819:PsiDirectoryNode" />
               <item name="cloudbalancing" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="cloudbalancing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="cloudbalancing" type="462c0819:PsiDirectoryNode" />
+              <item name="optional" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="cloudbalancing" type="462c0819:PsiDirectoryNode" />
+              <item name="optional" type="462c0819:PsiDirectoryNode" />
+              <item name="benchmark" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
@@ -296,12 +325,25 @@
               <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="swingui" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: xmlpull:xmlpull:1.1.3.1" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="optaplanner-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: xmlpull:xmlpull:1.1.3.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="xmlpull-1.1.3.1.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,7 +351,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/optaplanner-core" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -331,7 +373,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CloudBalancingApp">
+  <component name="RunManager" selected="Application.OptaPlannerExamplesApp">
     <configuration name="CloudBalancingApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.optaplanner.examples.cloudbalancing.app.CloudBalancingApp" />
       <module name="optaplanner-examples" />
@@ -358,8 +400,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CloudBalancingApp" />
         <item itemvalue="Application.OptaPlannerExamplesApp" />
+        <item itemvalue="Application.CloudBalancingApp" />
       </list>
     </recent_temporary>
   </component>
@@ -375,15 +417,17 @@
       <updated>1543141444374</updated>
       <workItem from="1543141447188" duration="6235000" />
       <workItem from="1543200051859" duration="4314000" />
-      <workItem from="1543208495142" duration="8975000" />
+      <workItem from="1543208495142" duration="9298000" />
+      <workItem from="1543493172809" duration="1154000" />
+      <workItem from="1543817832986" duration="3528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19524000" />
+    <option name="totallyTimeSpent" value="24529000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="7" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -394,10 +438,10 @@
       <window_info anchor="right" id="Maven Projects" order="2" weight="0.15820312" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.050056882" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.050056882" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.19498777" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.20660147" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
@@ -414,14 +458,14 @@
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.050056882" />
       <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.19498777" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.050056882" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info id="Designer" order="2" />
       <window_info x="615" y="282" width="450" height="455" id="UI Designer" order="0" type="WINDOWED" />
@@ -430,7 +474,7 @@
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.3287827" />
@@ -477,104 +521,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/scrabble/app/ScrabbleApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/optional/score/CloudBalancingMapBasedEasyScoreCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/optional/score/CloudBalancingIncrementalScoreCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudComputer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1717#1718#0" expanded="true" />
-            <element signature="e#1873#1874#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#3157#3158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/7.13.0.Final/optaplanner-core-7.13.0.Final.jar!/org/optaplanner/core/impl/score/director/easy/EasyScoreCalculator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/7.13.0.Final/optaplanner-core-7.13.0.Final.jar!/org/optaplanner/core/api/score/AbstractScore.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/7.13.0.Final/optaplanner-core-7.13.0.Final.jar!/org/optaplanner/core/api/score/buildin/hardsoft/HardSoftScore.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/optional/score/CloudBalancingEasyScoreCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/7.13.0.Final/optaplanner-core-7.13.0.Final.jar!/org/optaplanner/core/impl/score/director/easy/EasyScoreDirector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#0#2373#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/7.13.0.Final/optaplanner-core-7.13.0.Final.jar!/org/optaplanner/core/impl/score/director/AbstractScoreDirectorFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -586,20 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1520">
           <caret line="120" selection-start-line="120" selection-end-line="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudBalance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="e#2703#2704#0" expanded="true" />
-            <element signature="e#2738#2739#0" expanded="true" />
-            <element signature="e#2943#2944#0" expanded="true" />
-            <element signature="e#2977#2978#0" expanded="true" />
-            <element signature="e#3224#3225#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,16 +628,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.form" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/swingui/hello.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/LinkedHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -762,27 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="39" column="36" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingHelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="42" column="75" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="208" column="11" selection-start-line="208" selection-start-column="11" selection-end-line="208" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/score/director/ScoreDirectorFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -792,19 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/business/SolutionBusiness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="1020">
           <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-          <folding>
-            <element signature="docComment;class#SolutionBusiness#0" />
-            <element signature="e#3873#3874#0" expanded="true" />
-            <element signature="e#3903#3904#0" expanded="true" />
-            <element signature="e#4695#4696#0" expanded="true" />
-            <element signature="e#4737#4738#0" expanded="true" />
-            <element signature="e#7864#7865#0" expanded="true" />
-            <element signature="e#7920#7921#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#12357#12358#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -817,30 +709,163 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/swingui/SolverAndPersistenceFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="1600">
           <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/common/app/CommonApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="1660">
           <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
           <folding>
             <element signature="e#4327#4328#0" expanded="true" />
-            <element signature="e#4359#4360#0" expanded="true" />
+            <element signature="e#4361#4362#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/awt/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="18880">
           <caret line="1012" column="16" selection-start-line="1012" selection-start-column="16" selection-end-line="1012" selection-end-column="16" />
           <folding>
             <element signature="e#35456#35457#0" expanded="true" />
             <element signature="e#35491#35492#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/app/AllExamplesSolutionImporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudBalance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2738#2739#0" expanded="true" />
+            <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="e#1717#1718#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/domain/CloudProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#3126#3127#0" expanded="true" />
+            <element signature="e#3157#3158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/app/GeneralOptaPlannerBenchmarkApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/app/OptaPlannerExamplesApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/kie/kie-api/7.13.0.Final/kie-api-7.13.0.Final.jar!/org/kie/api/runtime/KieContainer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-626">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar!/com/thoughtworks/xstream/XStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="874" column="18" selection-start-line="874" selection-start-column="18" selection-end-line="874" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/config/SolverConfigContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-638">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/AbstractSolverFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/impl/solver/XStreamXmlSolverFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/SolverFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="236" column="38" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/optaplanner/examples/cloudbalancing/app/CloudBalancingHelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optaplanner-core/src/main/java/org/optaplanner/core/api/solver/Solver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="100" selection-end-column="7" />
         </state>
       </provider>
     </entry>

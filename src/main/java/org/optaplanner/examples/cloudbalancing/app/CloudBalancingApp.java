@@ -41,10 +41,10 @@ public class CloudBalancingApp extends CommonApp<CloudBalance> {
     }
 
     public CloudBalancingApp() {
-        super("Cloud balancing",
-                "将进程分配给计算机.\n\n" +
+        super("Cloud balancing",  //这些内容将会显示到首页的说明中
+                "将进程分配给计算机.\n" +
                 "每台计算机都必须有足够的硬件来运行其所有进程.\n" +
-                "每台使用过的计算机都会产生维护成本.",
+                "每台使用中的计算机都会产生维护成本.",
                 SOLVER_CONFIG, DATA_DIR_NAME,
                 CloudBalancingPanel.LOGO_PATH);
     }

@@ -102,15 +102,18 @@ public class XStreamXmlSolverFactory<Solution_> extends AbstractSolverFactory<So
      */
     public XStreamXmlSolverFactory<Solution_> configure(String solverConfigResource) {
         ClassLoader actualClassLoader = solverConfigContext.determineActualClassLoader();
-        try (InputStream in = actualClassLoader.getResourceAsStream(solverConfigResource)) {
-            if (in == null) {
+        try (InputStream in = actualClassLoader.getResourceAsStream(solverConfigResource)) {//获取XML路径
+            if (in == null) {     //当前路径不存在
                 String errorMessage = "The solverConfigResource (" + solverConfigResource
                         + ") does not exist as a classpath resource in the classLoader (" + actualClassLoader + ").";
-                if (solverConfigResource.startsWith("/")) {
+                if (solverConfigResource.startsWith("/")) {  //startsWith() 方法用于检测字符串是否以指定的前缀开始。
                     errorMessage += "\nAs from 6.1, a classpath resource should not start with a slash (/)."
                             + " A solverConfigResource now adheres to ClassLoader.getResource(String)."
                             + " Remove the leading slash from the solverConfigResource if you're upgrading from 6.0.";
                 }
+                //从6.1开始，类路径资源不应以斜杠（/）开头。“
+                //+“solverConfigResource现在遵守ClassLoader.getResource（String）。”
+                // +“如果从6.0升级，则从solverConfigResource中删除前导斜杠。”;
                 throw new IllegalArgumentException(errorMessage);
             }
             return configure(in);
@@ -136,6 +139,7 @@ public class XStreamXmlSolverFactory<Solution_> extends AbstractSolverFactory<So
         }
     }
 
+    //读取XML文件内容，并交给解析器
     public XStreamXmlSolverFactory<Solution_> configure(InputStream in) {
         try (Reader reader = new InputStreamReader(in, "UTF-8")) {
             return configure(reader);
@@ -146,6 +150,7 @@ public class XStreamXmlSolverFactory<Solution_> extends AbstractSolverFactory<So
         }
     }
 
+    //进行XML解析
     public XStreamXmlSolverFactory<Solution_> configure(Reader reader) {
         solverConfig = (SolverConfig) xStream.fromXML(reader);
         return this;
