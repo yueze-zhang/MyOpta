@@ -62,6 +62,7 @@ public interface Solver<Solution_> {
      * <p>
      * This is useful for generic code, which doesn't know the type of the {@link PlanningSolution}
      * to retrieve the {@link Score} from the {@link #getBestSolution()} easily.
+     * 这对于通用代码很有用，它不知道{@link PlanningSolution}的类型，可以轻松地从{@link #getBestSolution（）}中检索{@link Score}。
      * <p>
      * This method is thread-safe.
      * @return null if the {@link PlanningSolution} is still uninitialized
@@ -73,11 +74,15 @@ public interface Solver<Solution_> {
      * to identify which constraints or planning entities cause that {@link #getBestScore()} quality.
      * In case of an {@link FeasibilityScore#isFeasible() infeasible} solution,
      * this can help diagnose the cause of that.
+     * 返回一个诊断文本，通过{@link ConstraintMatch} API解释{@link #getBestSolution（）}，以确定哪些约束或计划实体导致{@link #getBestScore（）}质量。
+     * 如果{@link FeasibilityScore＃isFeasible（）不可行}解决方案，这可以帮助诊断其原因。
      * <p>
      * Do not parse this string.
      * Instead, to provide this information in a UI or a service, use {@link #getScoreDirectorFactory()}
      * to retrieve {@link ScoreDirector#getConstraintMatchTotals()} and {@link ScoreDirector#getIndictmentMap()}
      * and convert those into a domain specific API.
+     * 请勿解析此字符串。相反，要在UI或服务中提供此信息，请使用{@link #getScoreDirectorFactory（）}检索
+     * {@link ScoreDirector＃getConstraintMatchTotals（）}和{@link ScoreDirector＃getIndictmentMap（）}和将它们转换为特定于域的API。
      * <p>
      * This method is thread-safe.
      * @return null if {@link #getBestScore()} returns null
@@ -99,12 +104,10 @@ public interface Solver<Solution_> {
     long getTimeMillisSpent(); //解决规划问题并返回遇到的最佳解决方案（可能是也可能不是最佳的，可行的，甚至是初始化的）。
 
     /**
-     * Solves the planning problem and returns the best solution encountered
-     * (which might or might not be optimal, feasible or even initialized).
+     * 解决规划问题并返回遇到的最佳解决方案（可能是也可能不是最佳的，可行的，甚至是初始化的）。
      * <p>
-     * It can take seconds, minutes, even hours or days before this method returns,
-     * depending on the {@link Termination} configuration.
-     * To terminate a {@link Solver} early, call {@link #terminateEarly()}.
+     * 此方法返回之前可能需要几秒，几分钟甚至几小时或几天，具体取决于{@link Termination}配置。
+     * 要提前终止{@link Solver}，请致电{@link #terminateEarly（）}。
      * @param problem never null, usually its planning variables are uninitialized
      * @return never null, but it can return the original, uninitialized {@link PlanningSolution} with a {@link Score} null.
      * @see #terminateEarly()

@@ -25,7 +25,7 @@ import org.optaplanner.core.impl.solver.ChildThreadType;
 import org.optaplanner.core.impl.solver.scope.DefaultSolverScope;
 
 /**
- * A Termination determines when a {@link Solver} or a {@link Phase} should stop.
+ * 终止确定何时{@link Solver}或{@link Phase}应该停止。
  * <p>
  * An implementation must extend {@link AbstractTermination} to ensure backwards compatibility in future versions.
  * @see AbstractTermination

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//求解器的事件监听器。
 package org.optaplanner.core.impl.solver.event;
 
 import java.util.Iterator;
@@ -27,6 +27,7 @@ import org.optaplanner.core.impl.solver.scope.DefaultSolverScope;
 
 /**
  * Internal API.
+ * 内部API。
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  */
 public class SolverEventSupport<Solution_> extends AbstractEventSupport<SolverEventListener<Solution_>> {

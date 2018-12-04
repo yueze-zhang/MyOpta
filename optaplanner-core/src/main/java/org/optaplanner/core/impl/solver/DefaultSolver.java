@@ -37,6 +37,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Default implementation for {@link Solver}.
+ * {@link Solver}的默认实现。
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  * @see Solver
  * @see AbstractSolver

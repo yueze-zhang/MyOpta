@@ -38,6 +38,8 @@ import org.optaplanner.core.impl.solver.termination.Termination;
  * <p>
  * Do not create a new child {@link Solver} to implement a new heuristic or metaheuristic,
  * just use a new {@link Phase} for that.
+ * {@link DefaultSolver}和子解算器之间的公共代码（例如{@link PartitionSolver}。
+ *不要创建一个新的子项{@link Solver}来实现新的启发式或元启发式，只需使用新的{@link Phase}即可。
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  * @see Solver
  * @see DefaultSolver
@@ -49,6 +51,7 @@ public abstract class AbstractSolver<Solution_> implements Solver<Solution_> {
 
     protected final BestSolutionRecaller<Solution_> bestSolutionRecaller;
     // Note that the DefaultSolver.basicPlumbingTermination is a component of this termination
+    //请注意，DefaultSolver.basicPlumbingTermination是此终止的组件
     protected final Termination termination;
     protected final List<Phase<Solution_>> phaseList;
 
