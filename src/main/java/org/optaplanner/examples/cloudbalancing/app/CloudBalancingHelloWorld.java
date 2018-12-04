@@ -36,16 +36,6 @@ public class CloudBalancingHelloWorld {
         //调用buildSolver方法，返回一个带有Solver接口信息的变量solver
         Solver<CloudBalance> solver = solverFactory.buildSolver();
 
-
-
-
-
-
-
-
-
-
-
         // Load a problem with 400 computers and 1200 processes
         //生成随机问题：您将用一个加载实际问题的类替换它，例如从数据库中替换。
         CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(400, 1200);

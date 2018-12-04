@@ -34,24 +34,28 @@ import static java.lang.annotation.RetentionPolicy.*;
  * A solution represents a problem and a possible solution of that problem.
  * A possible solution does not need to be optimal or even feasible.
  * A solution's planning variables might not be initialized (especially when delivered as a problem).
+ * 指定该类是计划解决方案。
+ * 解决方案代表了该问题以及该问题的可能解决方案。
+ * 可能的解决方案不需要是最佳的或甚至不可行的。
+ * 解决方案的计划变量可能未初始化（特别是在作为问题交付时）。
  * <p>
  * A solution is mutable.
  * For scalability reasons (to facilitate incremental score calculation),
  * the same solution instance (called the working solution per move thread) is continuously modified.
  * It's cloned to recall the best solution.
+ * 解决方案是可变的。
+ * 在可扩展性的原因（便于增量分数计算），相同的解决方案实例（称为移动每线程的工作溶液中）连续修改。
+ * 它被克隆以回忆起最佳解决方案。
  * <p>
- * Each planning solution must have exactly 1 {@link PlanningScore} property.
+ * 每个计划解决方案必须具有1个{@link PlanningScore}属性。
  * <p>
- * Each planning solution must have at least 1 {@link PlanningEntityCollectionProperty}
- * or {@link PlanningEntityProperty} property.
+ * 每个计划解决方案必须至少有1个{@link PlanningEntityCollectionProperty}或{@link PlanningEntityProperty}属性。
  * <p>
- * Each planning solution is recommended to have 1 {@link ConstraintConfigurationProvider} property too.
+ * 建议每个规划解决方案也具有1个{@link ConstraintConfigurationProvider}属性。
  * <p>
- * Each planning solution used with Drools score calculation must have at least 1 {@link ProblemFactCollectionProperty}
- * or {@link ProblemFactProperty} property.
+ * 与Drools得分计算一起使用的每个计划解决方案必须至少有1个{@link ProblemFactCollectionProperty}或{@link ProblemFactProperty}属性。
  * <p>
- * The class should have a public no-arg constructor, so it can be cloned
- * (unless the {@link #solutionCloner()} is specified).
+ * 该类应该有一个公共的无参数构造函数，因此可以克隆它（除非指定了{@link #solutionCloner（）}）。
  */
 @Target({TYPE})
 @Retention(RUNTIME)
@@ -63,14 +67,17 @@ public @interface PlanningSolution {
      * {@link PlanningEntityProperty}, {@link ProblemFactCollectionProperty}, {@link ProblemFactProperty}
      * and {@link ConstraintConfigurationProvider} annotations based on the member type.
      * @return never null
+     *
+     * 通过类成员启用反射，以自动假设基于以下内容的{@link PlanningScore}，{@link PlanningEntityCollectionProperty}，
+     * {@link PlanningEntityProperty}，{@link ProblemFactCollectionProperty}，
+     * {@link ProblemFactProperty}和{@link ConstraintConfigurationProvider}注释成员类型。
      */
     AutoDiscoverMemberType autoDiscoverMemberType() default AutoDiscoverMemberType.NONE;
 
     /**
-     * Overrides the default {@link SolutionCloner} to implement a custom {@link PlanningSolution} cloning implementation.
+     * 复写默认的{@link SolutionCloner}以实现自定义的{@link PlanningSolution}克隆实现。
      * <p>
-     * If this is not specified, then the default reflection-based {@link SolutionCloner} is used,
-     * so you don't have to worry about it.
+     * 如果未指定，则使用默认的基于反射的{@link SolutionCloner}，因此您不必担心它。
      * @return {@link NullSolutionCloner} when it is null (workaround for annotation limitation)
      */
     Class<? extends SolutionCloner> solutionCloner()

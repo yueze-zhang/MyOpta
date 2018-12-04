@@ -49,7 +49,6 @@ import org.optaplanner.persistence.xstream.api.score.buildin.hardsoft.HardSoftSc
 public class CloudBalance extends AbstractPersistable {
 
     private List<CloudComputer> computerList;
-
     private List<CloudProcess> processList;
 
     @XStreamConverter(HardSoftScoreXStreamConverter.class)

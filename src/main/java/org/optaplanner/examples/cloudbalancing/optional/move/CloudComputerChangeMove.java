@@ -38,6 +38,7 @@ public class CloudComputerChangeMove extends AbstractMove<CloudBalance> {
         this.toCloudComputer = toCloudComputer;
     }
 
+    //移动可行
     @Override
     public boolean isMoveDoable(ScoreDirector<CloudBalance> scoreDirector) {
         return !Objects.equals(cloudProcess.getComputer(), toCloudComputer);

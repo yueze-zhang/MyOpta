@@ -25,7 +25,7 @@ import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProp
 import org.optaplanner.core.api.domain.solution.drools.ProblemFactProperty;
 
 /**
- * Determines if and how to automatically presume
+ * 确定是否以及如何自动设定
  * {@link ConstraintConfigurationProvider}, {@link ProblemFactCollectionProperty}, {@link ProblemFactProperty},
  * {@link PlanningEntityCollectionProperty}, {@link PlanningEntityProperty} and {@link PlanningScore} annotations
  * on {@link PlanningSolution} members based from the member type.
@@ -38,11 +38,13 @@ public enum AutoDiscoverMemberType {
     /**
      * Reflect over the fields and automatically behave as the appropriate annotation is there
      * based on the field type.
+     *反映字段并根据字段类型自动表现为适当的注释。
      */
     FIELD,
     /**
      * Reflect over the getter methods and automatically behave as the appropriate annotation is there
      * based on the return type.
+     * 反映getter方法并根据返回类型自动表现为适当的注释。
      */
     GETTER;
 }

@@ -35,42 +35,26 @@ import org.optaplanner.core.impl.solver.termination.Termination;
 /**
  * A Solver solves a planning problem.
  * 解算器解决了规划问题。
- * Clients usually call {@link #solve} and then {@link #getBestSolution()}.
- * These methods are not thread-safe and should be called from the same thread,
- * except for the methods that are explicitly marked as thread-safe.
- * Note that despite that {@link #solve} is not thread-safe for clients of this class,
- * that method is free to do multithreading inside itself.
- *   *这些方法不是线程安全的，应该从同一个线程调用，
- *   *除了明确标记为线程安全的方法。
- *   *请注意，尽管{@link #solve}对于此类的客户端来说不是线程安全的，
- *   *该方法可以自由地在其内部进行多线程处理。
+ * 客户通常会调用{@link #solve}然后调用{@link #getBestSolution（）}。
+ * 这些方法不是线程安全的，应该从同一个线程调用，除了明确标记为线程安全的方法。
+ * 请注意，尽管{@link #solve}对于此类的客户端来说不是线程安全的，但该方法可以在其自身内部进行多线程处理。
  * Build by a {@link SolverFactory}.
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
+ * 由{@link SolverFactory}构建。
+ * @param <Solution_>解决方案类型，带有{@link PlanningSolution}注释的类
  */
 public interface Solver<Solution_> {
 
     /**
-     * The best solution is the {@link PlanningSolution best solution} found during solving:
-     * it might or might not be optimal, feasible or even initialized.
+     * 最佳解决方案是在解决过程中找到的{@link PlanningSolution最佳解决方案}：它可能是也可能不是最佳，可行或甚至是初始化的。
      * <p>
-     * The {@link #solve} method also returns the best solution,
-     * but this method is useful in rare asynchronous situations (although
-     * {@link SolverEventListener#bestSolutionChanged(BestSolutionChangedEvent)} is often more appropriate).
+     * {@link #solve} 可以返回最佳方案，但这种方法在罕见的异步情况下很有用（尽管如此
+     * {@link SolverEventListener#bestSolutionChanged(BestSolutionChangedEvent)} 通常更合适).
      * <p>
-     * This method is thread-safe.
-     * @return never null, but it can return the uninitialized {@link PlanningSolution} with a {@link Score} null.
+     * 此方法是线程安全的。
+     *  @return 永远不会为null，但它可以返回未初始化的{@link PlanningSolution}，其中{@link Score}为null。
      */
-    /**
-           *最佳解决方案是在解决过程中找到的{@link PlanningSolution最佳解决方案}：
-           *它可能是也可能不是最佳，可行或甚至是初始化的。
 
-           * {@link #solve}方法也返回最佳解决方案，
-           *但这种方法在罕见的异步情况下很有用（尽管如此）
-           * {@link SolverEventListener＃bestSolutionChanged（BestSolutionChangedEvent）}通常更合适）。
-
-           *此方法是线程安全的。
-           * @return永远不会为null，但它可以返回未初始化的{@link PlanningSolution}，其中{@link Score}为null。
-          */
     Solution_ getBestSolution();//得到最佳结果
 
     /**

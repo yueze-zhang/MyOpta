@@ -31,11 +31,15 @@ import org.optaplanner.core.impl.solver.XStreamXmlSolverFactory;
 
 /**
  * Builds {@link Solver} instances.
+ * 构建{@link Solver}实例。
  * <p>
  * To build an instance, use {@link #createFromXmlResource(String)} or any of the other creation methods.
+ * 要构建实例，请使用{@link ＃createFromXmlResource(String)}或任何其他创建方法。
  * <p>
  * Supports tweaking the configuration programmatically before a {@link Solver} instance is build.
+ * 支持在构建{@link Solver}实例之前以编程方式调整配置。
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
+ * @param <Solution_>解决方案类型，带有{@link PlanningSolution}注释的类
  */
 public abstract class SolverFactory<Solution_> {
 
