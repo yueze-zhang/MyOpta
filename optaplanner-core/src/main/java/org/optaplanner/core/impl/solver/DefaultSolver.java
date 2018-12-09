@@ -44,9 +44,9 @@ import org.slf4j.LoggerFactory;
  */
 public class DefaultSolver<Solution_> extends AbstractSolver<Solution_> {
 
-    protected final transient Logger logger = LoggerFactory.getLogger(getClass());
+    protected final transient Logger logger = LoggerFactory.getLogger(getClass());//打log
 
-    protected EnvironmentMode environmentMode;
+    protected EnvironmentMode environmentMode; //环境模式：检查代码中的错误
     protected RandomFactory randomFactory;
 
     protected BasicPlumbingTermination basicPlumbingTermination;

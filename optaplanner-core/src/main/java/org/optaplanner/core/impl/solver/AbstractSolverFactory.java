@@ -32,7 +32,7 @@ public class AbstractSolverFactory<Solution_> extends SolverFactory<Solution_> {
     protected SolverConfig solverConfig = null;
 
     public AbstractSolverFactory(SolverConfigContext solverConfigContext) {
-        this.solverConfigContext = solverConfigContext;
+        this.solverConfigContext = solverConfigContext;  //获得到solverConfigContext值
     }
 
     public SolverConfigContext getSolverConfigContext() {

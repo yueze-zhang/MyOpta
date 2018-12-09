@@ -45,11 +45,14 @@ public class XStreamXmlSolverFactory<Solution_> extends AbstractSolverFactory<So
      * Builds the {@link XStream} setup which is used to read/write {@link SolverConfig solver configs} and benchmark configs.
      * It should never be used to read/write {@link PlanningSolution solutions}.
      * Use XStreamSolutionFileIO for that instead.
+     * 构建{@link XStream}设置，用于读/写{@link SolverConfig求解器配置}和基准配置。
+     * 永远不应该用它来读/写{@link PlanningSolution solutions}。
+     * 改为使用XStreamSolutionFileIO。
      * @return never null.
      */
     public static XStream buildXStream() {
-        XStream xStream = new XStream();
-        xStream.setMode(XStream.ID_REFERENCES);
+        XStream xStream = new XStream();  //要使用XStream，使用此代码实例化XStream类：
+        xStream.setMode(XStream.ID_REFERENCES);//它为每个被编组的新对象生成一个“id”属性，每当它找到返回或交叉引用时，它都使用“reference”属性，因此它不会复制整个对象。
         xStream.aliasSystemAttribute("xStreamId", "id");
         xStream.aliasSystemAttribute("xStreamRef", "reference");
         xStream.processAnnotations(SolverConfig.class);
@@ -65,14 +68,14 @@ public class XStreamXmlSolverFactory<Solution_> extends AbstractSolverFactory<So
     protected XStream xStream;
 
     public XStreamXmlSolverFactory() {
-        this(new SolverConfigContext());
+        this(new SolverConfigContext());  //传来传去最后还得传到下面的构造方法当中，其中SolverConfigContext属性是空的
     }
 
     /**
      * @param solverConfigContext never null
      */
     public XStreamXmlSolverFactory(SolverConfigContext solverConfigContext) {
-        super(solverConfigContext);
+        super(solverConfigContext);  //瞎鸡巴赋值，反正刚开始的solverConfigContext里面两个属性都是空的
         xStream = buildXStream();
         ClassLoader actualClassLoader = solverConfigContext.determineActualClassLoader();
         xStream.setClassLoader(actualClassLoader);

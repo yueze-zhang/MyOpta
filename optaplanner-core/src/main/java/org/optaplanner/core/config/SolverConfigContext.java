@@ -26,14 +26,14 @@ import org.optaplanner.core.config.solver.SolverConfig;
 public class SolverConfigContext {
 
     private final ClassLoader classLoader;
-    private final KieContainer kieContainer;
+    private final KieContainer kieContainer;//Drools里面的API
 
     /**
      * Vanilla context.
      */
     public SolverConfigContext() {
         classLoader = null;
-        kieContainer = null;
+        kieContainer = null;  //Drools里面的API
     }
 
     /**
