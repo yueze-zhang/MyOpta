@@ -206,7 +206,7 @@ public class DefaultSolver<Solution_> extends AbstractSolver<Solution_> {
 
     @Override
     public void solvingStarted(DefaultSolverScope<Solution_> solverScope) {
-        solverScope.startingNow();
+        solverScope.startingNow(); //记录启动系统时间毫秒
         solverScope.getScoreDirector().resetCalculationCount();
         super.solvingStarted(solverScope);
         int startingSolverCount = solverScope.getStartingSolverCount() + 1;

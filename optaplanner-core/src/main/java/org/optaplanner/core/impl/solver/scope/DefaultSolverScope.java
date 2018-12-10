@@ -179,7 +179,7 @@ public class DefaultSolverScope<Solution_> {
     // ************************************************************************
 
     public void startingNow() {
-        startingSystemTimeMillis = System.currentTimeMillis();
+        startingSystemTimeMillis = System.currentTimeMillis(); //启动系统时间毫秒
         endingSystemTimeMillis = null;
     }
 
@@ -216,7 +216,7 @@ public class DefaultSolverScope<Solution_> {
     public void setWorkingSolutionFromBestSolution() {
         //从Best Solution设置工作解决方案
         // The workingSolution must never be the same instance as the bestSolution.
-        //workingSolution绝不能与bestSolution相同。
+        //workingSolution绝不能与bestSolution相同。所以要clone一份出来
         scoreDirector.setWorkingSolution(scoreDirector.cloneSolution(bestSolution));
     }
 

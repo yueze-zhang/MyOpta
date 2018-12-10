@@ -137,12 +137,12 @@ public class BasicPlumbingTermination extends AbstractTermination {
 
     @Override
     public synchronized boolean isSolverTerminated(DefaultSolverScope solverScope) {
-        // Destroying a thread pool with solver threads will only cause it to interrupt those solver threads,
-        // it won't call Solver.terminateEarly()
-        if (Thread.currentThread().isInterrupted() // Does not clear the interrupted flag
-                // Avoid duplicate log message because this method is called twice:
-                // - in the phase step loop (every phase termination bridges to the solver termination)
-                // - in the solver's phase loop
+        // Destroying a thread pool with solver threads will only cause it to interrupt those solver threads,使用求解器线程销毁线程池只会导致它中断那些求解器线程，
+        // it won't call Solver.terminateEarly()它不会调用Solver.terminated Early（）
+        if (Thread.currentThread().isInterrupted() // Does not clear the interrupted flag 不清除中断的旗帜
+                // Avoid duplicate log message because this method is called twice: 避免重复的日志消息，因为此方法被调用两次：
+                // - in the phase step loop (every phase termination bridges to the solver termination)在阶段循环中（每个阶段终止桥接到求解器终端）
+                // - in the solver's phase loop在求解器的相位循环中
                 && !terminatedEarly) {
             logger.info("The solver thread got interrupted, so this solver is terminating early.");
             terminatedEarly = true;

@@ -71,7 +71,7 @@ public abstract class AbstractSolver<Solution_> implements Solver<Solution_> {
     }
 
     // ************************************************************************
-    // Lifecycle methods
+    // Lifecycle methods生命周期方法
     // ************************************************************************
 
     public void solvingStarted(DefaultSolverScope<Solution_> solverScope) {

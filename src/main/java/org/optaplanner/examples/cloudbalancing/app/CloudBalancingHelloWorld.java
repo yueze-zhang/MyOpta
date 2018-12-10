@@ -40,7 +40,7 @@ public class CloudBalancingHelloWorld {
 
         // Load a problem with 400 computers and 1200 processes
         //生成随机问题：您将用一个加载实际问题的类替换它，例如从数据库中替换。
-        CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(400, 1200);
+        CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(4, 12);
 
         // 解决这个问题。
         CloudBalance solvedCloudBalance = solver.solve(unsolvedCloudBalance);
