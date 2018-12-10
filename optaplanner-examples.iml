@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/optaplanner-core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/optaplanner-core" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/optaplanner-core/src/test" />
+      <excludeFolder url="file://$MODULE_DIR$/optaplanner-core/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

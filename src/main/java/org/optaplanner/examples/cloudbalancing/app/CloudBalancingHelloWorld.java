@@ -33,7 +33,9 @@ public class CloudBalancingHelloWorld {
 
         SolverFactory<CloudBalance> solverFactory = SolverFactory.createFromXmlResource(
                 "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
+        //solverFactory类下的SolverConfig()就包括读取XML里的信息。
         //调用buildSolver方法，返回一个带有Solver接口信息的变量solver
+
         Solver<CloudBalance> solver = solverFactory.buildSolver();
 
         // Load a problem with 400 computers and 1200 processes

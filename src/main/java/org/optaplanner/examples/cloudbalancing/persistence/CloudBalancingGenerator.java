@@ -169,7 +169,7 @@ public class CloudBalancingGenerator extends LoggingMain {
         cloudBalance.setId(0L);
         createComputerList(cloudBalance, computerListSize);
         createProcessList(cloudBalance, processListSize);
-        assureComputerCapacityTotalAtLeastProcessRequiredTotal(cloudBalance);
+        assureComputerCapacityTotalAtLeastProcessRequiredTotal(cloudBalance);//确保计算机容量总计至少所需总数
         BigInteger possibleSolutionSize = BigInteger.valueOf(cloudBalance.getComputerList().size()).pow(
                 cloudBalance.getProcessList().size());
         logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",
@@ -188,7 +188,7 @@ public class CloudBalancingGenerator extends LoggingMain {
         cloudBalance.setComputerList(computerList);
     }
 
-    public CloudComputer generateComputerWithoutId() {
+    public CloudComputer generateComputerWithoutId() {//一共添加了400次这个函数
         CloudComputer computer = new CloudComputer();
         int cpuPowerPricesIndex = random.nextInt(CPU_POWER_PRICES.length);
         computer.setCpuPower(CPU_POWER_PRICES[cpuPowerPricesIndex].getHardwareValue());

@@ -77,7 +77,7 @@ public class SolverConfigContext {
     // Complex methods
     // ************************************************************************
 
-    public ClassLoader determineActualClassLoader() {
+    public ClassLoader determineActualClassLoader() { //确定实际类加载器
         if (classLoader != null) {
             return classLoader;
         } else if (kieContainer != null) {

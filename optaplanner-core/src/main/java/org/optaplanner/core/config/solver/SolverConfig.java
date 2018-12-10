@@ -73,16 +73,16 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
     protected Integer moveThreadBufferSize = null;
     protected Class<? extends ThreadFactory> threadFactoryClass = null;
 
-    @XStreamAlias("scanAnnotatedClasses")
+    @XStreamAlias("scanAnnotatedClasses")//域模型配置：我们需要让Planner了解我们的域类。
     protected ScanAnnotatedClassesConfig scanAnnotatedClassesConfig = null;
     protected Class<?> solutionClass = null;
     @XStreamImplicit(itemFieldName = "entityClass")
     protected List<Class<?>> entityClassList = null;
 
-    @XStreamAlias("scoreDirectorFactory")
+    @XStreamAlias("scoreDirectorFactory") //分数配置：Planner应如何优化规划变量？我们的目标是什么？
     protected ScoreDirectorFactoryConfig scoreDirectorFactoryConfig = null;
 
-    @XStreamAlias("termination")
+    @XStreamAlias("termination")//优化算法配置：Planner应该如何优化它？
     private TerminationConfig terminationConfig;
 
     @XStreamImplicit()
@@ -242,12 +242,18 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
      * @return never null
      */
     public <Solution_> Solver<Solution_> buildSolver(SolverConfigContext configContext) {
-        configContext.validate();
+        configContext.validate();          //验证configContext是否都为空
+
+        //可重现模式是默认模式，REPRODUCIBLE（默认）
+        // 因为在开发期间建议使用它。在此模式下，同一Planner版本中的两次运行将以相同的顺序执行相同的代码。
+        // 除非下面的注释适用，否则这两次运行在每一步都会有相同的结果。
+        // 这使您可以一致地重现错误。它还允许您在运行期间公平地对某些重构（例如分数约束性能优化）进行基准测试。
         EnvironmentMode environmentMode_ = determineEnvironmentMode();
+
         boolean daemon_ = defaultIfNull(daemon, false);
 
-        RandomFactory randomFactory = buildRandomFactory(environmentMode_);
-        Integer moveThreadCount_ = resolveMoveThreadCount();
+        RandomFactory randomFactory = buildRandomFactory(environmentMode_); //随机数发生器
+        Integer moveThreadCount_ = resolveMoveThreadCount();//数一数CPU有几个正在干活的
         SolutionDescriptor<Solution_> solutionDescriptor = buildSolutionDescriptor(configContext);
         ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_
                 = scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig()
@@ -283,6 +289,10 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
             }
             randomFactory = ConfigUtils.newInstance(this, "randomFactoryClass", randomFactoryClass);
         } else {
+            //许多启发式和元启发式依赖于伪随机数生成器进行移动选择，解决分数关系，基于概率的移动接受，
+            // 在求解过程中，Random重复使用相同的实例来提高随机值的再现性，性能和均匀分布。
+            //要更改该Random实例的随机种子，请指定randomSeed：
+            //要更改伪随机数生成器实现，请指定randomType：
             RandomType randomType_ = defaultIfNull(randomType, RandomType.JDK);
             Long randomSeed_ = randomSeed;
             if (randomSeed == null && environmentMode_ != EnvironmentMode.NON_REPRODUCIBLE) {
@@ -294,16 +304,16 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
     }
 
     protected int getAvailableProcessors() {
-        return Runtime.getRuntime().availableProcessors();
+        return Runtime.getRuntime().availableProcessors(); //方法返回到Java虚拟机的可用的处理器数量
     }
 
-    protected Integer resolveMoveThreadCount() {
-        int availableProcessorCount = getAvailableProcessors();
+    protected Integer resolveMoveThreadCount() {  //解决移动线程计数
+        int availableProcessorCount = getAvailableProcessors(); //获得可用的处理器数量
         Integer resolvedMoveThreadCount;
         if (moveThreadCount == null || moveThreadCount.equals(MOVE_THREAD_COUNT_NONE)) {
             return null;
         } else if (moveThreadCount.equals(MOVE_THREAD_COUNT_AUTO)) {
-            // Leave one for the Operating System and 1 for the solver thread, take the rest
+            // 为操作系统留一个，为求解器线留一个，其余的休息
             resolvedMoveThreadCount = (availableProcessorCount - 2);
             if (resolvedMoveThreadCount <= 1) {
                 // Fall back to single threaded solving with no move threads.
@@ -330,7 +340,7 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
 
     public <Solution_> SolutionDescriptor<Solution_> buildSolutionDescriptor(SolverConfigContext configContext) {
         ScoreDefinition deprecatedScoreDefinition = scoreDirectorFactoryConfig == null ? null
-                : scoreDirectorFactoryConfig.buildDeprecatedScoreDefinition();
+                : scoreDirectorFactoryConfig.buildDeprecatedScoreDefinition();//构建不推荐的分数定义
         if (scanAnnotatedClassesConfig != null) {
             if (solutionClass != null || entityClassList != null) {
                 throw new IllegalArgumentException("The solver configuration with scanAnnotatedClasses ("
@@ -338,7 +348,7 @@ public class SolverConfig extends AbstractConfig<SolverConfig> {
                         + ") or an entityClass (" + entityClassList + ").\n"
                         + "  Please decide between automatic scanning or manual referencing.");
             }
-            return scanAnnotatedClassesConfig.buildSolutionDescriptor(configContext, deprecatedScoreDefinition);
+            return scanAnnotatedClassesConfig.buildSolutionDescriptor(configContext, deprecatedScoreDefinition); //构建解决方案描述符
         } else {
             if (solutionClass == null) {
                 throw new IllegalArgumentException("The solver configuration must have a solutionClass (" + solutionClass
