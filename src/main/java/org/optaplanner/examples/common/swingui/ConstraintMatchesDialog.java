@@ -87,7 +87,7 @@ public class ConstraintMatchesDialog extends JDialog {
             tableScrollPane.setPreferredSize(new Dimension(700, 300));
             splitPane.setTopComponent(tableScrollPane);
             JPanel bottomPanel = new JPanel(new BorderLayout());
-            JLabel detailLabel = new JLabel("所选约束类型的约束匹配");
+            JLabel detailLabel = new JLabel("Constraint matches of selected constraint type");
             detailLabel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
             bottomPanel.add(detailLabel, BorderLayout.NORTH);
             final JTextArea detailTextArea = new JTextArea(10, 80);
@@ -147,11 +147,11 @@ public class ConstraintMatchesDialog extends JDialog {
         public String getColumnName(int columnIndex) {
             switch (columnIndex) {
                 case 0:
-                    return "约束名称";
+                    return "Constraint name";
                 case 1:
-                    return "匹配数（Match count）";
+                    return "Match count";
                 case 2:
-                    return "得分总计";
+                    return "Score total";
                 default:
                     throw new IllegalStateException("The columnIndex (" + columnIndex + ") is invalid.");
             }

@@ -190,7 +190,7 @@ public class TaskOverviewPanel extends JPanel implements Scrollable {
             TaskOrEmployeeListField.setSelectedItem(task.getPreviousTaskOrEmployee());
             listFieldsPanel.add(TaskOrEmployeeListField);
             int result = JOptionPane.showConfirmDialog(TaskOverviewPanel.this.getRootPane(),
-                    listFieldsPanel, "选择先前任务或员工 " + task.getLabel(),
+                    listFieldsPanel, "Select previous task or employee for " + task.getLabel(),
                     JOptionPane.OK_CANCEL_OPTION);
             if (result == JOptionPane.OK_OPTION) {
                 TaskOrEmployee toTaskOrEmployee = (TaskOrEmployee) TaskOrEmployeeListField.getSelectedItem();

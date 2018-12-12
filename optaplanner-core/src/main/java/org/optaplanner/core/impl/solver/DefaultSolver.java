@@ -184,7 +184,7 @@ public class DefaultSolver<Solution_> extends AbstractSolver<Solution_> {
         if (problem == null) {
             throw new IllegalArgumentException("The problem (" + problem + ") must not be null.");
         }
-        solverScope.setBestSolution(problem); //使用BestSolution求解问题，先带入方法中
+        solverScope.setBestSolution(problem);
         outerSolvingStarted(solverScope);
         boolean restartSolver = true;
         while (restartSolver) {
@@ -199,14 +199,14 @@ public class DefaultSolver<Solution_> extends AbstractSolver<Solution_> {
 
     public void outerSolvingStarted(DefaultSolverScope<Solution_> solverScope) {
         solving.set(true);
-        basicPlumbingTermination.resetTerminateEarly();//重置配置终止为false，该线程将永远执行下去
+        basicPlumbingTermination.resetTerminateEarly();
         solverScope.setStartingSolverCount(0);
-        solverScope.setWorkingRandom(randomFactory.createRandom());//设置随机种子
+        solverScope.setWorkingRandom(randomFactory.createRandom());
     }
 
     @Override
     public void solvingStarted(DefaultSolverScope<Solution_> solverScope) {
-        solverScope.startingNow(); //记录算法开始时间，并重置算法结束时间为NULL
+        solverScope.startingNow();
         solverScope.getScoreDirector().resetCalculationCount();
         super.solvingStarted(solverScope);
         int startingSolverCount = solverScope.getStartingSolverCount() + 1;
