@@ -102,7 +102,7 @@ public abstract class AbstractScoreDirector<Solution_, Factory_ extends Abstract
 
     @Override
     public SolutionDescriptor<Solution_> getSolutionDescriptor() {
-        return scoreDirectorFactory.getSolutionDescriptor();
+        return scoreDirectorFactory.getSolutionDescriptor();  //返回的是EASY模式
     }
 
     @Override
