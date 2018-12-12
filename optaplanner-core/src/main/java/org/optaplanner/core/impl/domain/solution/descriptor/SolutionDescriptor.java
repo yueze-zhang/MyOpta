@@ -229,8 +229,8 @@ public class SolutionDescriptor<Solution_> {
             processLegacySolution(descriptorPolicy, deprecatedScoreDefinition);
             return;
         }
-        // Do not check if problemFactCollectionMemberAccessorMap and problemFactMemberAccessorMap are empty
-        // because they are only required for Drools score calculation.
+        //不要检查problemFactCollectionMemberAccessorMap和problemFactMemberAccessorMap是否为空
+        //因为只有Drools分数计算才需要它们。
         if (scoreMemberAccessor == null) {
             throw new IllegalStateException("The solutionClass (" + solutionClass
                     + ") must have 1 member with a " + PlanningScore.class.getSimpleName() + " annotation.\n"
@@ -1084,7 +1084,7 @@ public class SolutionDescriptor<Solution_> {
         return count;
     }
 
-    public Iterator<Object> extractAllEntitiesIterator(Solution_ solution) {
+    public Iterator<Object> extractAllEntitiesIterator(Solution_ solution) {//提取所有实体迭代器
         List<Iterator<Object>> iteratorList = new ArrayList<>(
                 entityMemberAccessorMap.size() + entityCollectionMemberAccessorMap.size());
         for (MemberAccessor memberAccessor : entityMemberAccessorMap.values()) {
