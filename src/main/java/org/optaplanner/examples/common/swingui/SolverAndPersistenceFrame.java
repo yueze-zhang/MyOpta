@@ -298,7 +298,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
     private class SolveAction extends AbstractAction {
 
         public SolveAction() {
-            super("Solve", new ImageIcon(SolverAndPersistenceFrame.class.getResource("solveAction.png")));
+            super("开始解决", new ImageIcon(SolverAndPersistenceFrame.class.getResource("solveAction.png")));
         }
 
         @Override
@@ -330,9 +330,9 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
                 solutionBusiness.setSolution(bestSolution);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                throw new IllegalStateException("Solving was interrupted.", e);
+                throw new IllegalStateException("解决被中断.", e);
             } catch (ExecutionException e) {
-                throw new IllegalStateException("Solving failed.", e.getCause());
+                throw new IllegalStateException("解决错误.", e.getCause());
             } finally {
                 setSolvingState(false);
                 resetScreen();
@@ -344,14 +344,14 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
     private class TerminateSolvingEarlyAction extends AbstractAction {
 
         public TerminateSolvingEarlyAction() {
-            super("Terminate solving early",
+            super("提早结束",
                     new ImageIcon(SolverAndPersistenceFrame.class.getResource("terminateSolvingEarlyAction.png")));
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             terminateSolvingEarlyAction.setEnabled(false);
-            progressBar.setString("Terminating...");
+            progressBar.setString("终止中......");
             // This async, so it doesn't stop the solving immediately
             solutionBusiness.terminateSolvingEarly();
         }
@@ -360,7 +360,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
 
     private class OpenAction extends AbstractAction {
 
-        private static final String NAME = "Open...";
+        private static final String NAME = "打开...";
         private JFileChooser fileChooser;
 
         public OpenAction() {
@@ -399,7 +399,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
 
     private class SaveAction extends AbstractAction {
 
-        private static final String NAME = "Save as...";
+        private static final String NAME = "另存为...";
         private JFileChooser fileChooser;
 
         public SaveAction() {
@@ -443,7 +443,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
 
     private class ImportAction extends AbstractAction {
 
-        private static final String NAME = "Import...";
+        private static final String NAME = "导入...";
         private JFileChooser fileChooser;
 
         public ImportAction() {
@@ -510,7 +510,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
 
     private class ExportAction extends AbstractAction {
 
-        private static final String NAME = "Export as...";
+        private static final String NAME = "导出...";
         private final JFileChooser fileChooser;
 
         public ExportAction() {
@@ -563,7 +563,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
         usageExplanationPanel.add(usageExplanationLabel, BorderLayout.CENTER);
         JPanel descriptionPanel = new JPanel(new BorderLayout(2, 2));
         descriptionPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        descriptionPanel.add(new JLabel("Example description"), BorderLayout.NORTH);
+        descriptionPanel.add(new JLabel("示例描述"), BorderLayout.NORTH);
         JTextArea descriptionTextArea = new JTextArea(8, 70);
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setText(solutionBusiness.getAppDescription());
@@ -601,13 +601,13 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
         });
         buttonPanel.add(indictmentHeatMapToggleButton);
         scorePanel.add(buttonPanel, BorderLayout.WEST);
-        scoreField = new JTextField("Score:");
+        scoreField = new JTextField("得分：");
         scoreField.setEditable(false);
         scoreField.setForeground(Color.BLACK);
         scoreField.setBorder(BorderFactory.createLoweredBevelBorder());
         scorePanel.add(scoreField, BorderLayout.CENTER);
         refreshScreenDuringSolvingToggleButton = new JToggleButton(refreshScreenDuringSolvingTrueIcon, true);
-        refreshScreenDuringSolvingToggleButton.setToolTipText("Refresh screen during solving");
+        refreshScreenDuringSolvingToggleButton.setToolTipText("解决过程中刷新屏幕");
         refreshScreenDuringSolvingToggleButton.addActionListener(e -> {
             refreshScreenDuringSolvingToggleButton.setIcon(refreshScreenDuringSolvingToggleButton.isSelected() ?
                     refreshScreenDuringSolvingTrueIcon : refreshScreenDuringSolvingFalseIcon);
@@ -619,7 +619,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
     private class ShowConstraintMatchesDialogAction extends AbstractAction {
 
         public ShowConstraintMatchesDialogAction() {
-            super("Constraint matches", new ImageIcon(SolverAndPersistenceFrame.class.getResource("showConstraintMatchesDialogAction.png")));
+            super("约束匹配", new ImageIcon(SolverAndPersistenceFrame.class.getResource("showConstraintMatchesDialogAction.png")));
         }
 
         @Override
@@ -662,7 +662,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
         solutionPanel.setEnabled(!solving);
         progressBar.setIndeterminate(solving);
         progressBar.setStringPainted(solving);
-        progressBar.setString(solving ? "Solving..." : null);
+        progressBar.setString(solving ? "正在解决……" : null);
         indictmentHeatMapToggleButton.setEnabled(solutionPanel.isIndictmentHeatMapEnabled() && !solving);
         showConstraintMatchesDialogAction.setEnabled(!solving);
     }
@@ -677,7 +677,7 @@ public class SolverAndPersistenceFrame<Solution_> extends JFrame {
 
     public void refreshScoreField(Score score) {
         scoreField.setForeground(determineScoreFieldForeground(score));
-        scoreField.setText("Latest best score: " + score);
+        scoreField.setText("最新的最佳成绩: " + score);
     }
 
     private Color determineScoreFieldForeground(Score<?> score) {

@@ -57,7 +57,7 @@ public class EasyScoreDirector<Solution_>
     @Override
     public Score calculateScore() {
         variableListenerSupport.assertNotificationQueuesAreEmpty();
-        Score score = easyScoreCalculator.calculateScore(workingSolution);
+        Score score = easyScoreCalculator.calculateScore(workingSolution); //计算分数
         if (score == null) {
             throw new IllegalStateException("The easyScoreCalculator (" + easyScoreCalculator.getClass()
                     + ") must return a non-null score (" + score + ") in the method calculateScore().");
