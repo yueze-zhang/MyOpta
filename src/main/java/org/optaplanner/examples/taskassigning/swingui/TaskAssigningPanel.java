@@ -70,7 +70,7 @@ public class TaskAssigningPanel extends SolutionPanel<TaskAssigningSolution> {
     private JPanel createHeaderPanel() {
         JPanel headerPanel = new JPanel(new GridLayout(1, 0));
         JPanel consumePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        consumePanel.add(new JLabel("Consume rate:"));
+        consumePanel.add(new JLabel("时间流逝速率:"));
         consumeRateField = new JSpinner(new SpinnerNumberModel(600, 10, 3600, 10));
         consumePanel.add(consumeRateField);
         consumeTimer = new Timer(1000, e -> {
@@ -78,7 +78,7 @@ public class TaskAssigningPanel extends SolutionPanel<TaskAssigningSolution> {
             consumeUpTo(consumedTimeInSeconds / 60);
             repaint();
         });
-        consumeAction = new AbstractAction("Consume") {
+        consumeAction = new AbstractAction("开始流逝") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!consumeTimer.isRunning()) {
@@ -93,7 +93,7 @@ public class TaskAssigningPanel extends SolutionPanel<TaskAssigningSolution> {
         consumePanel.add(new JToggleButton(consumeAction));
         headerPanel.add(consumePanel);
         JPanel producePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        producePanel.add(new JLabel("Produce rate:"));
+        producePanel.add(new JLabel("生产速率:"));
         produceRateField = new JSpinner(new SpinnerNumberModel(600, 10, 3600, 10));
         producePanel.add(produceRateField);
         produceTimer = new Timer(1000, e -> {
@@ -101,7 +101,7 @@ public class TaskAssigningPanel extends SolutionPanel<TaskAssigningSolution> {
             produceUpTo(producedTimeInSeconds / 60);
             repaint();
         });
-        produceAction = new AbstractAction("Produce") {
+        produceAction = new AbstractAction("开始生产") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!produceTimer.isRunning()) {
