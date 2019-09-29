@@ -18,6 +18,8 @@ package org.optaplanner.examples.common.swingui.components;
 
 /**
  * @see LabeledComboBoxRenderer
+ * 显示用户友好的{@link Labeled＃getLabel（）}而不是开发人员友好的{@link Object＃toString（）}。
+ * 类似于toString(),但是比toString好看()
  */
 public interface Labeled {
 

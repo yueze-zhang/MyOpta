@@ -28,7 +28,7 @@ public class RowStrengthWeightFactory implements SelectionSorterWeightFactory<NQ
         int distanceFromMiddle = calculateDistanceFromMiddle(nQueens.getN(), row.getIndex());
         return new RowStrengthWeight(row, distanceFromMiddle);
     }
-
+//计算与中间的距离
     private static int calculateDistanceFromMiddle(int n, int columnIndex) {
         int middle = n / 2;
         int distanceFromMiddle = Math.abs(columnIndex - middle);
@@ -50,8 +50,10 @@ public class RowStrengthWeightFactory implements SelectionSorterWeightFactory<NQ
 
         @Override
         public int compareTo(RowStrengthWeight other) {
+
             return new CompareToBuilder()
                     // The stronger rows are on the side, so they have a higher distance to the middle
+                    //更强的行在侧面，因此它们到中间的距离更大
                     .append(distanceFromMiddle, other.distanceFromMiddle)
                     .append(row.getIndex(), other.row.getIndex())
                     .toComparison();

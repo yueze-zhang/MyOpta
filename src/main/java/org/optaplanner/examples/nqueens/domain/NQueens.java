@@ -51,6 +51,10 @@ public class NQueens extends AbstractPersistable {
         this.n = n;
     }
 
+    //对于约束流和Drools分数计算，规划师需要从解决方案实例中提取问题事实实例。
+    // 它通过调用用注释的每个方法（或字段）来获取这些集合@ProblemFactCollectionProperty。
+    // 这些方法返回的所有对象都将插入ConstrainStreams或Drools会话中，因此约束流或评分规则可以访问它们。
+    // 例如，在NQueens所有Column和Row实例是问题的事实(problem facts)。
     @ProblemFactCollectionProperty
     public List<Column> getColumnList() {
         return columnList;
@@ -70,6 +74,8 @@ public class NQueens extends AbstractPersistable {
         this.rowList = rowList;
     }
 
+    //计划者需要从解决方案实例中提取实体实例。
+    // 它通过调用每个带注释的getter（或字段）来获取这些集合@PlanningEntityCollectionProperty：
     @PlanningEntityCollectionProperty
     public List<Queen> getQueenList() {
         return queenList;

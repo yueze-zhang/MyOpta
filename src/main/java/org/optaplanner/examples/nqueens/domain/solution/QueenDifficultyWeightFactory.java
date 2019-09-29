@@ -52,6 +52,7 @@ public class QueenDifficultyWeightFactory implements SelectionSorterWeightFactor
         public int compareTo(QueenDifficultyWeight other) {
             return new CompareToBuilder()
                     // The more difficult queens have a lower distance to the middle
+                    //难度较大的王后与中间人物的距离较小。
                     .append(other.distanceFromMiddle, distanceFromMiddle) // Decreasing
                     // Tie breaker
                     .append(queen.getColumnIndex(), other.queen.getColumnIndex())

@@ -27,6 +27,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 由于N Queens并非NP完整或NP硬的，因此可能会被欺骗。
+ *   *因此，N个皇后不得用于基准测试。
+ *   * <p>
+ *   *此类使用多项式时间算法求解任何N个Queens实例
  * Because N Queens is not NP-complete or NP-hard, it can be cheated.
  * For this reason, N queens should not be used for benchmarking purposes.
  * <p>

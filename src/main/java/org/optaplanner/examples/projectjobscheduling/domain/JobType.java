@@ -16,8 +16,11 @@
 
 package org.optaplanner.examples.projectjobscheduling.domain;
 
+//这是实现技巧。SOURCE和SINK基本上是虚拟的。
+// 因为一个项目可能从多个并行的作业开始，所以一个SOURCE作业放在它的前面，只有一个根。最后也一样：它可以以多个结尾，
+// 因此紧随其后的是SINK作业，只有一条尾巴。这样可以更轻松，更快速地确定制造时间等。
 public enum JobType {
-    SOURCE,
-    STANDARD,
-    SINK;
+    SOURCE, //入口
+    STANDARD,//内容
+    SINK; //出口
 }

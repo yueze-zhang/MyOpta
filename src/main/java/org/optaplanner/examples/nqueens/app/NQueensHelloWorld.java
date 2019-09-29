@@ -40,6 +40,7 @@ public class NQueensHelloWorld {
 
         // Display the result
         System.out.println("\nSolved 8 queens:\n" + toDisplayString(solved8Queens));
+
     }
 
     public static String toDisplayString(NQueens nQueens) {

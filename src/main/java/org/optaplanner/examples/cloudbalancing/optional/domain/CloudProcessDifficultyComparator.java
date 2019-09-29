@@ -26,6 +26,7 @@ public class CloudProcessDifficultyComparator implements Comparator<CloudProcess
 
     @Override
     public int compare(CloudProcess a, CloudProcess b) {
+        //使用org.apache.commons.lang.builder.CompareToBuilder完成多属性排序
         return new CompareToBuilder()
                 .append(a.getRequiredMultiplicand(), b.getRequiredMultiplicand())
                 .append(a.getId(), b.getId())

@@ -14,7 +14,7 @@ PROJECT INFORMATION:
 pronr.  #jobs rel.date duedate tardcost  MPM-Time
     1     30      0       33        0       33
 ************************************************************************
-PRECEDENCE RELATIONS:
+PRECEDENCE RELATIONS:优先关系:
 jobnr.    #modes  #successors   successors
    1        1          3           2   3   4
    2        3          3           5   7   9
@@ -49,7 +49,7 @@ jobnr.    #modes  #successors   successors
   31        3          1          32
   32        1          0        
 ************************************************************************
-REQUESTS/DURATIONS:
+REQUESTS/DURATIONS: 请求/时间:
 jobnr. mode duration  R 1  R 2  N 1  N 2
 ------------------------------------------------------------------------
   1      1     0       0    0    0    0

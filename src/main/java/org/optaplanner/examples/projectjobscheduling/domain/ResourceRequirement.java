@@ -19,6 +19,10 @@ package org.optaplanner.examples.projectjobscheduling.domain;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 import org.optaplanner.examples.projectjobscheduling.domain.resource.Resource;
+//[计划] 所需资源
+//ResourceRequirement是ExecutionMode和Resource之间的多对多关系。
+// 请记住，ExecutionMode属于特定的Job。
+// 例如：在执行模式A1中执行作业A需要1名工人和5天。在执行模式A2中执行作业A需要2个工人和3天。
 
 @XStreamAlias("PjsResourceRequirement")
 public class ResourceRequirement extends AbstractPersistable {

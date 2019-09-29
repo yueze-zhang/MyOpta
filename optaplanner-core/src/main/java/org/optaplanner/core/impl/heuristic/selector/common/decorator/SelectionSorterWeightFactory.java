@@ -29,12 +29,26 @@ import org.optaplanner.core.impl.heuristic.selector.Selector;
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  * @param <T> the selection type
  */
+
+/**
+ *创建权重以决定选择集合的顺序
+ *（选择是{@link PlanningEntity}，planningValue，{@link Move}或{@link Selector}）。
+ *然后，选择项按其权重排序，
+ *除非配置为下降，否则通常会上升。
+ * @param <Solution_>解决方案类型，带有{@link PlanningSolution}批注的类
+ * @param <T>选择类型
+ */
 public interface SelectionSorterWeightFactory<Solution_, T> {
 
     /**
      * @param solution never null, the {@link PlanningSolution} to which the selection belongs or applies to
      * @param selection never null, a {@link PlanningEntity}, a planningValue, a {@link Move} or a {@link Selector}
      * @return never null, for example a {@link Integer}, {@link Double} or a more complex {@link Comparable}
+     */
+    /**
+     * @param solution 永远不会为空，所选内容所属或应用于的{@link PlanningSolution}
+     * @param selection 选择永远不会为空，{@link PlanningEntity}，planningValue，{@link Move}或{@link Selector}
+     * @return 绝不能为空，例如{@link Integer}，{@link Double}或更复杂的{@link Comparable}
      */
     Comparable createSorterWeight(Solution_ solution, T selection);
 

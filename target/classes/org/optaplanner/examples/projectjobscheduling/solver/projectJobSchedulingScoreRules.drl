@@ -36,7 +36,7 @@ global BendableScoreHolder scoreHolder;
 // ############################################################################
 // Hard constraints
 // ############################################################################
-
+//不可再生资源容量
 rule "nonrenewableResourceCapacity"
     when
         $resource : Resource(renewable == false, $capacity : capacity)
@@ -51,9 +51,9 @@ rule "nonrenewableResourceCapacity"
     then
         scoreHolder.addHardConstraintMatch(kcontext, 0, $capacity - $used);
 end
-
+//可再生资源使用日
 rule "renewableResourceUsedDay"
-        salience 1 // Do these rules first (optional, for performance)
+        salience 1 // Do these rules first (optional, for performance)首先执行这些规则(可选，以提高性能)
     when
         ResourceRequirement(resourceRenewable == true, $executionMode : executionMode, $resource : resource)
         Allocation(executionMode == $executionMode,

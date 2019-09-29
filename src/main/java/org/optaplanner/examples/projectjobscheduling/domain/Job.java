@@ -25,9 +25,11 @@ import org.optaplanner.examples.common.domain.AbstractPersistable;
 public class Job extends AbstractPersistable {
 
     private Project project;
+    //作业类型 SOURCE, STANDARD, SINK;
     private JobType jobType;
+    //执行模式
     private List<ExecutionMode> executionModeList;
-
+    //继任者的工作列表
     private List<Job> successorJobList;
 
     public Project getProject() {

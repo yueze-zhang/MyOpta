@@ -64,5 +64,4 @@ public class CloudBalancingApp extends CommonApp<CloudBalance> {
     public SolutionFileIO<CloudBalance> createSolutionFileIO() {
         return new XStreamSolutionFileIO<>(CloudBalance.class);
     }
-
 }

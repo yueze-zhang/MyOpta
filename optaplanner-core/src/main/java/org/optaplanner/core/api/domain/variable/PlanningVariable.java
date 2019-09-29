@@ -46,6 +46,13 @@ public @interface PlanningVariable {
      * There should be at least 1 element in this array.
      * @return 1 (or more) registered {@link ValueRangeProvider#id()}
      */
+    /**
+           * {@link PlanningSolution}或{@link PlanningEntity}上的任何{@link ValueRangeProvider}批注
+           *将自动使用其{@link ValueRangeProvider＃id（）}注册。
+           * <p>
+           *此数组中至少应包含1个元素。
+           * @返回1（或更多）已注册{@link ValueRangeProvider＃id（）}
+          */
     String[] valueRangeProviderRefs() default {};
 
     /**

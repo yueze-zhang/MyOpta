@@ -25,10 +25,17 @@ import org.optaplanner.examples.projectjobscheduling.domain.resource.LocalResour
 @XStreamAlias("PjsProject")
 public class Project extends AbstractPersistable {
 
+    //IIRC，releaseDate是我们被允许开始第一份工作的第一天。
+    // 例如：您必须创建一本书，但只能在下周一获得实际的最终内容，
+    // 因此releaseDate在下周一（您不能在该日期之前开始任何工作）。
     private int releaseDate;
+
+    //CriticalPathDuration是理论上的最小持续时间（如果我们可以愉快地忽略资源IIRC）。
+    // 例如：如果作业A需要5天，而作业B需要2天，而B必须在A之后完成，则关键路径持续时间为7天。
+    // 添加作业C需要1天的时间，并且可以与其他作业并行完成，因此不影响此操作。
     private int criticalPathDuration;
 
-    private List<LocalResource> localResourceList;
+    private List<LocalResource> localResourceList;  //本地资源列表
     private List<Job> jobList;
 
     public int getReleaseDate() {

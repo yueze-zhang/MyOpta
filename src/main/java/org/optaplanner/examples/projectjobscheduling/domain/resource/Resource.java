@@ -27,6 +27,7 @@ import org.optaplanner.examples.common.domain.AbstractPersistable;
 })
 public abstract class Resource extends AbstractPersistable {
 
+    //资源容量
     private int capacity;
 
     public int getCapacity() {

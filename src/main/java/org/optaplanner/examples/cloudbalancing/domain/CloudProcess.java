@@ -77,12 +77,15 @@ public class CloudProcess extends AbstractPersistable {
 
     //The property (or properties) of a planning entity class that changes during solving.
     // In this example, it is the property computer on the class Process.
+    //在求解过程中更改的计划实体类的一个或多个属性。
+    //在此示例中，它是Process类上的属性计算机。
     @PlanningVariable(valueRangeProviderRefs = {"computerRange"},
             strengthComparatorClass = CloudComputerStrengthComparator.class)
     public CloudComputer getComputer() {
         return computer;
     }
     //Of course, the property computer needs a setter too, so Planner can change it during solving.
+    //当然，属性计算机也需要设置器，因此Planner可以在求解过程中对其进行更改。
     public void setComputer(CloudComputer computer) {
         this.computer = computer;
     }
@@ -94,7 +97,6 @@ public class CloudProcess extends AbstractPersistable {
     public int getRequiredMultiplicand() {
         return requiredCpuPower * requiredMemory * requiredNetworkBandwidth;
     }
-
     public String getLabel() {
         return "Process " + id;
     }

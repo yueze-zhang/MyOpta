@@ -58,7 +58,7 @@ public class CloudBalancingGenerator extends LoggingMain {
             return cost;
         }
     }
-
+    //变量类型 [] 数组名 = new 变量类型[]{变量1,变量2,...}; Final表示不可修改
     private static final Price[] CPU_POWER_PRICES = { // in gigahertz
             new Price(3, "single core 3ghz", 110),
             new Price(4, "dual core 2ghz", 140),
@@ -94,29 +94,29 @@ public class CloudBalancingGenerator extends LoggingMain {
     public static void main(String[] args) {
         CloudBalancingGenerator generator = new CloudBalancingGenerator();
         generator.writeCloudBalance(2, 6);
-        generator.writeCloudBalance(3, 9);
-        generator.writeCloudBalance(4, 12);
-//        generator.writeCloudBalance(5, 15);
-//        generator.writeCloudBalance(6, 18);
-//        generator.writeCloudBalance(7, 21);
-//        generator.writeCloudBalance(8, 24);
-//        generator.writeCloudBalance(9, 27);
-//        generator.writeCloudBalance(10, 30);
-//        generator.writeCloudBalance(11, 33);
-//        generator.writeCloudBalance(12, 36);
-//        generator.writeCloudBalance(13, 39);
-//        generator.writeCloudBalance(14, 42);
-//        generator.writeCloudBalance(15, 45);
-//        generator.writeCloudBalance(16, 48);
-//        generator.writeCloudBalance(17, 51);
-//        generator.writeCloudBalance(18, 54);
-//        generator.writeCloudBalance(19, 57);
-//        generator.writeCloudBalance(20, 60);
-        generator.writeCloudBalance(100, 300);
-        generator.writeCloudBalance(200, 600);
-        generator.writeCloudBalance(400, 1200);
-        generator.writeCloudBalance(800, 2400);
-        generator.writeCloudBalance(1600, 4800);
+//        generator.writeCloudBalance(3, 9);
+//        generator.writeCloudBalance(4, 12);
+////        generator.writeCloudBalance(5, 15);
+////        generator.writeCloudBalance(6, 18);
+////        generator.writeCloudBalance(7, 21);
+////        generator.writeCloudBalance(8, 24);
+////        generator.writeCloudBalance(9, 27);
+////        generator.writeCloudBalance(10, 30);
+////        generator.writeCloudBalance(11, 33);
+////        generator.writeCloudBalance(12, 36);
+////        generator.writeCloudBalance(13, 39);
+////        generator.writeCloudBalance(14, 42);
+////        generator.writeCloudBalance(15, 45);
+////        generator.writeCloudBalance(16, 48);
+////        generator.writeCloudBalance(17, 51);
+////        generator.writeCloudBalance(18, 54);
+////        generator.writeCloudBalance(19, 57);
+////        generator.writeCloudBalance(20, 60);
+//        generator.writeCloudBalance(100, 300);
+//        generator.writeCloudBalance(200, 600);
+//        generator.writeCloudBalance(400, 1200);
+//        generator.writeCloudBalance(800, 2400);
+//        generator.writeCloudBalance(1600, 4800);
     }
 
     protected final SolutionFileIO<CloudBalance> solutionFileIO;
@@ -146,14 +146,16 @@ public class CloudBalancingGenerator extends LoggingMain {
     }
 
     private void writeCloudBalance(int computerListSize, int processListSize) {
+        //和XML相关
         String fileName = determineFileName(computerListSize, processListSize);
         File outputFile = new File(outputDir, fileName + ".xml");
+        //生成createCloudBalance案例
         CloudBalance cloudBalance = createCloudBalance(fileName, computerListSize, processListSize);
         solutionFileIO.write(cloudBalance, outputFile);
         logger.info("Saved: {}", outputFile);
     }
 
-    //生成随机案例
+    //生成随机案例,如果不生成XML可以直接用此方法,
     public CloudBalance createCloudBalance(int computerListSize, int processListSize) {
         return createCloudBalance(determineFileName(computerListSize, processListSize),
                 computerListSize, processListSize);
@@ -163,21 +165,31 @@ public class CloudBalancingGenerator extends LoggingMain {
         return computerListSize + "computers-" + processListSize + "processes";
     }
 
+    //inputId 用于logger记录信息,computerListSize为电脑数量,processListSize 为进程数量
     public CloudBalance createCloudBalance(String inputId, int computerListSize, int processListSize) {
+        //创建随机种子
         random = new Random(47);
         CloudBalance cloudBalance = new CloudBalance();
         cloudBalance.setId(0L);
+        //创建电脑表
         createComputerList(cloudBalance, computerListSize);
+        //创建进程表
         createProcessList(cloudBalance, processListSize);
-        assureComputerCapacityTotalAtLeastProcessRequiredTotal(cloudBalance);//确保计算机容量总计至少所需总数
+        //确保计算机的总处理能力至少达到所需的总处理能力
+        assureComputerCapacityTotalAtLeastProcessRequiredTotal(cloudBalance);
+        //valueOf() 方法用于返回给定参数的原生 Number 对象值，参数可以是原生数据类型, String等。
+        //pow() 方法用于返回第一个参数的第二个参数次方。
+        //创建 可能的解决方案大小
         BigInteger possibleSolutionSize = BigInteger.valueOf(cloudBalance.getComputerList().size()).pow(
                 cloudBalance.getProcessList().size());
+        //生成log
         logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",
                 inputId, computerListSize, processListSize,
                 AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
         return cloudBalance;
     }
 
+    //创建电脑表
     private void createComputerList(CloudBalance cloudBalance, int computerListSize) {
         List<CloudComputer> computerList = new ArrayList<>(computerListSize);
         for (int i = 0; i < computerListSize; i++) {
@@ -188,24 +200,34 @@ public class CloudBalancingGenerator extends LoggingMain {
         cloudBalance.setComputerList(computerList);
     }
 
-    public CloudComputer generateComputerWithoutId() {//一共添加了400次这个函数
+    public CloudComputer generateComputerWithoutId() {
         CloudComputer computer = new CloudComputer();
+
+        //随机从CPU_POWER_PRICES数组中选出一个Price,并设置COMPUTER属性的CpuPower值
         int cpuPowerPricesIndex = random.nextInt(CPU_POWER_PRICES.length);
         computer.setCpuPower(CPU_POWER_PRICES[cpuPowerPricesIndex].getHardwareValue());
-        int memoryPricesIndex = distortIndex(cpuPowerPricesIndex, MEMORY_PRICES.length);
+
+
+        int memoryPricesIndex = cpuPowerPricesIndex;  //不加入变形指数
+        //int memoryPricesIndex = distortIndex(cpuPowerPricesIndex, MEMORY_PRICES.length);
         computer.setMemory(MEMORY_PRICES[memoryPricesIndex].getHardwareValue());
-        int networkBandwidthPricesIndex = distortIndex(cpuPowerPricesIndex, NETWORK_BANDWIDTH_PRICES.length);
+
+        int networkBandwidthPricesIndex = cpuPowerPricesIndex;  //不加入变形指数
+        //int networkBandwidthPricesIndex = distortIndex(cpuPowerPricesIndex, NETWORK_BANDWIDTH_PRICES.length);
         computer.setNetworkBandwidth(NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getHardwareValue());
+
         int cost = CPU_POWER_PRICES[cpuPowerPricesIndex].getCost()
                 + MEMORY_PRICES[memoryPricesIndex].getCost()
                 + NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getCost();
         computer.setCost(cost);
+
         logger.trace("Created computer with cpuPowerPricesIndex ({}), memoryPricesIndex ({}),"
                 + " networkBandwidthPricesIndex ({}).",
                 cpuPowerPricesIndex, memoryPricesIndex, networkBandwidthPricesIndex);
         return computer;
     }
 
+    //变形指数,把length的长度 映射到index上
     private int distortIndex(int referenceIndex, int length) {
         int index = referenceIndex;
         double randomDouble = random.nextDouble();
@@ -247,6 +269,7 @@ public class CloudBalancingGenerator extends LoggingMain {
         return process;
     }
 
+    //随机数生成器
     private int generateRandom(int maximumValue) {
         double randomDouble = random.nextDouble();
         double parabolaBase = 2000.0;
@@ -261,6 +284,7 @@ public class CloudBalancingGenerator extends LoggingMain {
         return value;
     }
 
+    //确保计算机的总处理能力至少达到所需的总处理能力
     private void assureComputerCapacityTotalAtLeastProcessRequiredTotal(CloudBalance cloudBalance) {
         List<CloudComputer> computerList = cloudBalance.getComputerList();
         int cpuPowerTotal = 0;

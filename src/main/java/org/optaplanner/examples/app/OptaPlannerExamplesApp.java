@@ -53,7 +53,7 @@ import org.optaplanner.examples.flightcrewscheduling.app.FlightCrewSchedulingApp
 import org.optaplanner.examples.investment.app.InvestmentApp;
 import org.optaplanner.examples.machinereassignment.app.MachineReassignmentApp;
 import org.optaplanner.examples.meetingscheduling.app.MeetingSchedulingApp;
-import org.optaplanner.examples.nqueens.app.NQueensApp;
+//import org.optaplanner.examples.nqueens.app.NQueensApp;
 import org.optaplanner.examples.nurserostering.app.NurseRosteringApp;
 import org.optaplanner.examples.pas.app.PatientAdmissionScheduleApp;
 import org.optaplanner.examples.projectjobscheduling.app.ProjectJobSchedulingApp;
@@ -132,7 +132,7 @@ public class OptaPlannerExamplesApp extends JFrame {
         panel.add(createExampleButton(new CurriculumCourseApp()));
         panel.add(createExampleButton(new RockTourApp()));
         panel.add(createExampleButton(new ProjectJobSchedulingApp()));
-        panel.add(createExampleButton(new NQueensApp()));
+        //panel.add(createExampleButton(new NQueensApp()));
 
         panel.add(createExampleButton(new ExaminationApp()));
         panel.add(createExampleButton(new CoachShuttleGatheringApp()));

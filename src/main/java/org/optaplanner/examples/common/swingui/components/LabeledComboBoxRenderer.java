@@ -22,6 +22,7 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
 /**
+ * 显示用户友好的{@link Labeled＃getLabel（）}而不是开发人员友好的{@link Object＃toString（）}。
  * Display the user-friendly {@link Labeled#getLabel()} instead of the developer-friendly {@link Object#toString()}.
  */
 public class LabeledComboBoxRenderer implements ListCellRenderer {

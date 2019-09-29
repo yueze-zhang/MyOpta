@@ -22,7 +22,7 @@ import org.optaplanner.examples.curriculumcourse.persistence.CurriculumCourseImp
 import org.optaplanner.examples.dinnerparty.persistence.DinnerPartyImporter;
 import org.optaplanner.examples.examination.persistence.ExaminationImporter;
 import org.optaplanner.examples.machinereassignment.persistence.MachineReassignmentImporter;
-import org.optaplanner.examples.nqueens.persistence.NQueensGenerator;
+//import org.optaplanner.examples.nqueens.persistence.NQueensGenerator;
 import org.optaplanner.examples.nurserostering.persistence.NurseRosteringImporter;
 import org.optaplanner.examples.pas.persistence.PatientAdmissionScheduleImporter;
 import org.optaplanner.examples.projectjobscheduling.persistence.ProjectJobSchedulingImporter;
@@ -37,7 +37,7 @@ public class AllExamplesSolutionImporter extends LoggingMain {
     }
 
     public void importAll() {
-        NQueensGenerator.main(new String[0]);
+        //NQueensGenerator.main(new String[0]);
         CloudBalancingGenerator.main(new String[0]);
         TspImporter.main(new String[0]);
         DinnerPartyImporter.main(new String[0]);
