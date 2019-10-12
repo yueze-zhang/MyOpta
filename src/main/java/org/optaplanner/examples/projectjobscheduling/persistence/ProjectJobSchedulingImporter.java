@@ -171,6 +171,8 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
             }
 
             @Override
+
+            //正式开始读取Schedule文件
             public Schedule readSolution() throws IOException {
                 readHeader();
                 readResourceList();
@@ -179,6 +181,7 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
                 readRequestDurations();
                 readResourceAvailabilities();
                 detectPointlessSuccessor();
+                //破解，使代码可以重用来自TxtInputBuilder的读取方法
                 return null; // Hack so the code can reuse read methods from TxtInputBuilder
             }
 
@@ -246,6 +249,7 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
                             + ") index 1 should be " + (jobListSize - 2) + ".");
                 }
                 // Ignore releaseDate, dueDate, tardinessCost and mpmTime
+                // 忽略releaseDate，dueDate，tardinessCost和mpmTime
                 readConstantLine("\\*+");
             }
 
@@ -277,7 +281,7 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
                                 + ") should be at least 3 in length.");
                     }
                     if (Integer.parseInt(tokens[0]) != i + 1) {
-                        throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens)
+                        throw new IllegalArgumentException("FUCK The tokens (" + Arrays.toString(tokens)
                                 + ") index 0 should be " + (i + 1) + ".");
                     }
                     int executionModeListSize = Integer.parseInt(tokens[1]);
@@ -293,7 +297,7 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
                     schedule.getExecutionModeList().addAll(executionModeList);
                     int successorJobListSize = Integer.parseInt(tokens[2]);
                     if (tokens.length != 3 + successorJobListSize) {
-                        throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens)
+                        throw new IllegalArgumentException("FUCK The tokens (" + Arrays.toString(tokens)
                                 + ") should be " + (3 + successorJobListSize) + " in length.");
                     }
                     List<Job> successorJobList = new ArrayList<>(successorJobListSize);
@@ -401,6 +405,8 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
         private void removePointlessExecutionModes() {
             // TODO iterate through schedule.getJobList(), find pointless ExecutionModes
             // and delete them both from the job and from schedule.getExecutionModeList()
+            // TODO通过schedule.getJobList（）进行迭代，找到毫无意义的ExecutionModes
+            //并从作业和schedule.getExecutionModeList（）中删除它们
         }
 
         private void createAllocationList() {
@@ -416,6 +422,7 @@ public class ProjectJobSchedulingImporter extends AbstractTxtSolutionImporter<Sc
                 allocation.setPredecessorAllocationList(new ArrayList<>(job.getSuccessorJobList().size()));
                 allocation.setSuccessorAllocationList(new ArrayList<>(job.getSuccessorJobList().size()));
                 // Uninitialized allocations take no time, but don't break the predecessorsDoneDate cascade to sink.
+                //未初始化的分配不会花费任何时间，但不要破坏predecessorsDoneDate级联即可接收。
                 allocation.setPredecessorsDoneDate(job.getProject().getReleaseDate());
                 if (job.getJobType() == JobType.SOURCE) {
                     allocation.setDelay(0);

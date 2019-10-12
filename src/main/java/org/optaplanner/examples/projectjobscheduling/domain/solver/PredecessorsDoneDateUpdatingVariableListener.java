@@ -24,6 +24,7 @@ import org.optaplanner.core.impl.domain.variable.listener.VariableListener;
 import org.optaplanner.core.impl.score.director.ScoreDirector;
 import org.optaplanner.examples.projectjobscheduling.domain.Allocation;
 
+//前任完成日期更新变量侦听器（用于更新阴影变量）
 public class PredecessorsDoneDateUpdatingVariableListener implements VariableListener<Allocation> {
 
     @Override
@@ -58,23 +59,26 @@ public class PredecessorsDoneDateUpdatingVariableListener implements VariableLis
 
     protected void updateAllocation(ScoreDirector scoreDirector, Allocation originalAllocation) {
         Queue<Allocation> uncheckedSuccessorQueue = new ArrayDeque<>();
+        //更改下一个工序的前序工序完成时间
         uncheckedSuccessorQueue.addAll(originalAllocation.getSuccessorAllocationList());
         while (!uncheckedSuccessorQueue.isEmpty()) {
             Allocation allocation = uncheckedSuccessorQueue.remove();
             boolean updated = updatePredecessorsDoneDate(scoreDirector, allocation);
             if (updated) {
+                //更改下下个工序的前序工序完成时间
                 uncheckedSuccessorQueue.addAll(allocation.getSuccessorAllocationList());
             }
         }
     }
-
     /**
+     * 更新当前allocation任务开始时间，也就是前序allocation完成时间（PredecessorsDoneDate）
      * @param scoreDirector never null
      * @param allocation never null
-     * @return true if the startDate changed
+     * @return true if the startDate changed    如果startDate更改，则为true
      */
     protected boolean updatePredecessorsDoneDate(ScoreDirector scoreDirector, Allocation allocation) {
         // For the source the doneDate must be 0.
+        ////对于源，doneDate必须为0。
         Integer doneDate = 0;
         for (Allocation predecessorAllocation : allocation.getPredecessorAllocationList()) {
             int endDate = predecessorAllocation.getEndDate();

@@ -48,6 +48,7 @@ rule "period"
 end
 
 // Introduce MachinePeriodPart to score efficiently
+//引入MachinePeriodPart进行有效评分
 rule "machinePeriodPart"
     salience 2
     when
@@ -69,6 +70,7 @@ end
 // ############################################################################
 
 // Start time limits: each task must start between its earliest start and latest start limit.
+//开始时间限制：每个任务必须在最早的开始时间和最近的开始时间之间开始。
 rule "startTimeLimitsFrom"
     when
         $taskAssignment : TaskAssignment($task : task, $startPeriod : startPeriod < $task.startPeriodRangeFrom)
@@ -84,6 +86,8 @@ rule "startTimeLimitsTo"
 end
 
 // Maximum capacity: the maximum capacity for each resource for each machine must not be exceeded.
+//最大容量：不得超过每台机的每个资源的最大容量。
+//// resourceInShortTotal是在MachinePeriodPart构造函数中计算的
 rule "maximumCapacity" // resourceInShortTotal is calculated in MachinePeriodPart constructor
     when
         MachinePeriodPart($resourceInShortTotal : resourceInShortTotal < 0)
@@ -96,6 +100,10 @@ end
 
 //     -> no rule is required because it's implemented in MachinePeriodPart
 
+//启动和关闭：每台计算机在分配任务期间必须处于活动状态。
+//在任务之间允许空闲，以避免启动和关闭成本。
+
+//->不需要任何规则，因为它是在MachinePeriodPart中实现的
 // ############################################################################
 // Medium constraints
 // ############################################################################
@@ -104,6 +112,10 @@ end
 //   which infers a power cost (depending on the power price during that time).
 
 // Machine startup and shutdown cost: Every time a machine starts up or shuts down, an extra cost is inflicted.
+////机器电源成本：每台活动或闲置的机器都消耗功率，
+  ////会推断出电力成本（取决于该时间段内的电力价格）。
+  //
+  ////机器启动和关闭成本：每次机器启动或关闭时，都会产生额外的成本。
 
 rule "calculateIdleCost"
     salience 1
@@ -163,6 +175,7 @@ rule "firstBoot"
 end
 
 // Task power cost: Each task consumes power too, which infers a power cost (depending on the power price during its time).
+////任务电源成本：每个任务也消耗电源，这会推断出电源成本（取决于其时间的电价）。
 rule "taskPowerCost"
     when
         PeriodWrapper($period : period)
@@ -178,6 +191,7 @@ end
 // ############################################################################
 
 // Start early: prefer starting a task sooner rather than later.
+////提早开始：宁愿早点开始任务，而不是晚点开始。
 rule "startEarly"
     when
         TaskAssignment($startPeriod : startPeriod != null)

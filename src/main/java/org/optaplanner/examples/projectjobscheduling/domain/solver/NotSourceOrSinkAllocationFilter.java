@@ -21,9 +21,10 @@ import org.optaplanner.core.impl.score.director.ScoreDirector;
 import org.optaplanner.examples.projectjobscheduling.domain.Allocation;
 import org.optaplanner.examples.projectjobscheduling.domain.JobType;
 import org.optaplanner.examples.projectjobscheduling.domain.Schedule;
-
+//不是源或接收器分配过滤器
 public class NotSourceOrSinkAllocationFilter implements SelectionFilter<Schedule, Allocation> {
 
+    //如果是SOURCE或者SINK则不作为PlanningEntity
     @Override
     public boolean accept(ScoreDirector<Schedule> scoreDirector, Allocation allocation) {
         JobType jobType = allocation.getJob().getJobType();

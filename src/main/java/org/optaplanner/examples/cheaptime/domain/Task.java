@@ -30,6 +30,7 @@ public class Task extends AbstractPersistable {
     private int startPeriodRangeTo; // Exclusive
 
     // Order is equal to resourceList so Resource.getIndex() can be used for the index
+    //顺序等于resourceList，因此Resource.getIndex（）可用于索引
     private List<TaskRequirement> taskRequirementList;
 
     public long getPowerConsumptionMicros() {

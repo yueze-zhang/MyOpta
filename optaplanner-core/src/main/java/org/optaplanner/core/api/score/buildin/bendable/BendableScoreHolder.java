@@ -218,6 +218,13 @@ public class BendableScoreHolder extends AbstractScoreHolder<BendableScore> {
      * The {@code scoreLevel} is {@code hardLevel} for hard levels and {@code softLevel + hardLevelSize} for soft levels.
      * @param weight higher is better, negative for a penalty, positive for a reward
      */
+    /**
+     * @param kcontext 永远不会为空，DRL中的魔术变量
+     * @param hardLevel {@code 0 <= hardLevel <} {@link #getHardLevelsSize（）}。
+     * {@code scoreLevel}是{@code hardLevel}用于硬性级别，{@code softLevel + hardLevelSize}用于软性级别。
+     * @param weight 越高越好，罚则负，奖赏正
+      */
+
     public void addHardConstraintMatch(RuleContext kcontext, int hardLevel, int weight) {
         hardScores[hardLevel] += weight;
         registerConstraintMatch(kcontext,

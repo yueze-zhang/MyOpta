@@ -98,6 +98,10 @@ public class Schedule extends AbstractPersistable {
         this.allocationList = allocationList;
     }
 
+    //A BendableScore的分数级别可配置。它具有一组硬int值和一组软int值，
+    // 例如，具有两个硬级别和三个软级别，得分可以为[-123/-456]hard/[-789/-012/-345]soft。在这种情况下，它具有五个得分等级。
+    // 如果所有硬等级都至少为零，则解决方案是可行的。
+    //具有一个硬级别和一个软级别的BendableScore等同于HardSoftScore，而具有一个硬级别和两个软级别的BendableScore等同于HardMediumSoftScore。
     @PlanningScore(bendableHardLevelsSize = 1, bendableSoftLevelsSize = 2)
     public BendableScore getScore() {
         return score;

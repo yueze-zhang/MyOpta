@@ -37,6 +37,9 @@ import org.optaplanner.core.impl.solver.ProblemFactChange;
  * The ScoreDirector holds the {@link PlanningSolution working solution}
  * and calculates the {@link Score} for it.
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
+ *   * ScoreDirector拥有{@link PlanningSolution 工作解决方案}
+ *   *并为其计算{@link Score}。
+ *   * @param <Solution_>解决方案类型，带有{@link PlanningSolution}批注的类
  */
 public interface ScoreDirector<Solution_> extends AutoCloseable {
 
@@ -49,6 +52,14 @@ public interface ScoreDirector<Solution_> extends AutoCloseable {
      * If the {@link PlanningSolution working solution} has been changed since {@link #calculateScore} was called,
      * its {@link Score} won't be correct.
      * @return never null
+     * *用于计算{@link Score}的{@link PlanningSolution}。
+     *       * <p>
+     *       *由于{@link Score}最好以增量方式（按增量）计算，
+     *       *当{@link PlanningSolution 工作解决方案}发生变化时，需要通知{@link ScoreDirector}。
+     *       * <p>
+     *       *如果自调用{@link #calculateScore}以来{@link PlanningSolution 工作解决方案}已更改，
+     *       *其{@link得分}不正确。
+     *       * @return永远不会为空
      */
     Solution_ getWorkingSolution();
 
@@ -60,6 +71,12 @@ public interface ScoreDirector<Solution_> extends AutoCloseable {
      * built by {@link Solver#getScoreDirectorFactory()},
      * not on the one used inside the {@link Solver} itself.
      * @param workingSolution never null
+     * {@link PlanningSolution 工作解决方案}绝对不能与{@link PlanningSolution 最佳解决方案}是同一实例，它应该是（未更改的）克隆。
+     *       * <p>
+     *       *仅在单独的{@link ScoreDirector}实例上调用此方法，
+     *       *由{@link Solver＃getScoreDirectorFactory（）}构建，
+     *       *不在{@link Solver}本身内部使用的那一项上。
+     *       * @param workingSolution永远不会为空
      */
     void setWorkingSolution(Solution_ workingSolution);
 

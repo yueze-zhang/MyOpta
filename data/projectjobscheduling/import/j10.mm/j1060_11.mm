@@ -16,14 +16,14 @@ pronr.  #jobs rel.date duedate tardcost  MPM-Time
 ************************************************************************
 PRECEDENCE RELATIONS:
 jobnr.    #modes  #successors   successors
-   1        1          1           2
+   1        1          3           2   3   4
    2        3          1          10
    3        3          1          10
    4        3          1           5
-   5        3          1           6
+   5        3          3           6   7   8
    6        3          1          11
-   7        3          1           9
-   8        3          1           9
+   7        3          2           9  11
+   8        3          3           9  10  11
    9        3          1          12
   10        3          1          12
   11        3          1          12

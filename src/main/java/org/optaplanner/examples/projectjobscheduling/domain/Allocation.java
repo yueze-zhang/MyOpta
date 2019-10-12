@@ -32,6 +32,8 @@ import org.optaplanner.examples.projectjobscheduling.domain.solver.ExecutionMode
 import org.optaplanner.examples.projectjobscheduling.domain.solver.NotSourceOrSinkAllocationFilter;
 import org.optaplanner.examples.projectjobscheduling.domain.solver.PredecessorsDoneDateUpdatingVariableListener;
 
+////分配过滤器 ，如果是SOURCE或者SINK则不作为PlanningEntity
+//要使某些计划实体不可移动，请添加一个实体SelectionFilter ，true如果一个实体是可移动的，false如果它是不可移动的，则返回该实体。
 @PlanningEntity(movableEntitySelectionFilter = NotSourceOrSinkAllocationFilter.class)
 @XStreamAlias("PjsAllocation")
 public class Allocation extends AbstractPersistable {
@@ -44,10 +46,11 @@ public class Allocation extends AbstractPersistable {
     private List<Allocation> successorAllocationList;
 
     // Planning variables: changes during planning, between score calculations.
+    //在计划期间，分数计算之间进行更改。
     private ExecutionMode executionMode;
     private Integer delay; // In days
 
-    // Shadow variables
+    // Shadow variables 前任完成日期
     private Integer predecessorsDoneDate;
 
     public Job getJob() {
@@ -100,6 +103,9 @@ public class Allocation extends AbstractPersistable {
         this.executionMode = executionMode;
     }
 
+    //如果某些优化算法可以估算哪些计划值更强，则它们的工作效率会更高，这意味着它们更有可能满足计划实体的要求。
+    // 例如：在垃圾箱包装中，较大的容器更有可能适合某个物品，而在日程安排中较大的房间则不太可能打破学生的容量限制。
+    // 通常，计划价值强度的效率增益远小于计划实体难度的效率增益。
     @PlanningVariable(valueRangeProviderRefs = {"delayRange"},
             strengthComparatorClass = DelayStrengthComparator.class)
     public Integer getDelay() {
@@ -167,7 +173,7 @@ public class Allocation extends AbstractPersistable {
 
     @ValueRangeProvider(id = "delayRange")
     public CountableValueRange<Integer> getDelayRange() {
-        return ValueRangeFactory.createIntValueRange(0, 500);
+        return ValueRangeFactory.createIntValueRange(0, 20);
     }
 
 }

@@ -103,6 +103,8 @@ public class ProjectJobSchedulingIncrementalScoreCalculator extends AbstractIncr
     private void insert(Allocation allocation) {
         // Job precedence is built-in
         // Resource capacity
+        //作业优先级是内置的
+        //资源容量
         ExecutionMode executionMode = allocation.getExecutionMode();
         if (executionMode != null && allocation.getJob().getJobType() == JobType.STANDARD) {
             for (ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
@@ -114,14 +116,17 @@ public class ProjectJobSchedulingIncrementalScoreCalculator extends AbstractIncr
             }
         }
         // Total project delay and total make span
+        //项目总延误和总工期
         if (allocation.getJob().getJobType() == JobType.SINK) {
             Integer endDate = allocation.getEndDate();
             if (endDate != null) {
                 Project project = allocation.getProject();
                 projectEndDateMap.put(project, endDate);
                 // Total project delay
+                //项目总延误
                 soft0Score -= endDate - project.getCriticalPathEndDate();
                 // Total make span
+                //总跨度
                 if (endDate > maximumProjectEndDate) {
                     soft1Score -= endDate - maximumProjectEndDate;
                     maximumProjectEndDate = endDate;
@@ -133,6 +138,8 @@ public class ProjectJobSchedulingIncrementalScoreCalculator extends AbstractIncr
     private void retract(Allocation allocation) {
         // Job precedence is built-in
         // Resource capacity
+        //作业优先级是内置的
+        //资源容量
         ExecutionMode executionMode = allocation.getExecutionMode();
         if (executionMode != null && allocation.getJob().getJobType() == JobType.STANDARD) {
             for (ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
@@ -144,14 +151,17 @@ public class ProjectJobSchedulingIncrementalScoreCalculator extends AbstractIncr
             }
         }
         // Total project delay and total make span
+        //项目总延误和总工期
         if (allocation.getJob().getJobType() == JobType.SINK) {
             Integer endDate = allocation.getEndDate();
             if (endDate != null) {
                 Project project = allocation.getProject();
                 projectEndDateMap.remove(project);
                 // Total project delay
+                //项目总延误
                 soft0Score += endDate - project.getCriticalPathEndDate();
                 // Total make span
+                //总跨度
                 if (endDate == maximumProjectEndDate) {
                     updateMaximumProjectEndDate();
                     soft1Score += endDate - maximumProjectEndDate;

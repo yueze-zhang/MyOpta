@@ -25,7 +25,6 @@ import org.optaplanner.examples.common.domain.AbstractPersistable;
 public class Machine extends AbstractPersistable {
 
     private int index;
-
     private long powerConsumptionMicros; // when it's up
     private long spinUpDownCostMicros; // In micros, sum of upCost and downCost
 

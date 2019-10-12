@@ -35,8 +35,8 @@ import org.optaplanner.persistence.xstream.api.score.buildin.hardmediumsoftlong.
 public class CheapTimeSolution extends AbstractPersistable {
 
     private int timeResolutionInMinutes;
-    private int globalPeriodRangeFrom; // Inclusive
-    private int globalPeriodRangeTo; // Exclusive
+    private int globalPeriodRangeFrom; // Inclusive 包括的
+    private int globalPeriodRangeTo; // Exclusive 独家
 
     private List<Resource> resourceList;
     private List<Machine> machineList;
@@ -44,6 +44,7 @@ public class CheapTimeSolution extends AbstractPersistable {
     private List<Task> taskList;
     private List<TaskRequirement> taskRequirementList;
     // Order is equal to global periodRange so int period can be used for the index
+    //顺序等于全局periodRange，因此可以将int period用作索引
     private List<PeriodPowerPrice> periodPowerPriceList;
 
     private List<TaskAssignment> taskAssignmentList;

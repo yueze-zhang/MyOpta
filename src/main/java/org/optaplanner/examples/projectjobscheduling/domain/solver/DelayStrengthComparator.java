@@ -21,8 +21,10 @@ import java.util.Comparator;
 
 public class DelayStrengthComparator implements Comparator<Integer>, Serializable {
 
+
     @Override
     public int compare(Integer a, Integer b) {
+        //前者大于后者，返回1，前者等于后者则返回0，前者小于后者则返回-1
         return a.compareTo(b);
     }
 

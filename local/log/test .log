@@ -1,0 +1,6 @@
+18:43:37.414 [AWT-EventQueue-0] INFO  Terminating solver early.
+17:49:01.394 [main] INFO  Schedule A-1 has 2 projects, 10 jobs, 16 execution modes, 7 resources and 25 resource requirements.
+17:49:01.400 [main] INFO  Imported: data\projectjobscheduling\import\A-1.txt
+17:49:01.437 [main] INFO  Saved: data\projectjobscheduling\unsolved\A-1.xml
+17:49:01.456 [main] INFO  Schedule A-2 has 2 projects, 44 jobs, 124 execution modes, 7 resources and 420 resource requirements.
+17:49:01.457 [main] INFO  Imported: data\projectjobscheduling\import\A-2.txt

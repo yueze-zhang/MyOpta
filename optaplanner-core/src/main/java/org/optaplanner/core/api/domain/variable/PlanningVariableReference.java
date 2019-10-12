@@ -30,6 +30,12 @@ public @interface PlanningVariableReference {
      * than the class that uses this referencing annotation.
      * @return {@link NullEntityClass} when it is null (workaround for annotation limitation).
      * Defaults to the same {@link Class} as the one that uses this annotation.
+     *       *计划变量的{@link PlanningEntity}类。
+     *       * <p>
+     *       *指定计划变量是否在不同的{@link Class}上
+     *       *比使用此引用注释的类。
+     *       * @return {@link NullEntityClass}为null时（注释限制的解决方法）。
+     *       *默认与使用此注释的{@link Class}相同。
      */
     Class<?> entityClass() default NullEntityClass.class;
 

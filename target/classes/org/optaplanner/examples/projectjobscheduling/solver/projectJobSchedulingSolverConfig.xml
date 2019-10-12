@@ -14,6 +14,7 @@
     <minutesSpentLimit>5</minutesSpentLimit>
   </termination>
 
+
   <constructionHeuristic>
     <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
   </constructionHeuristic>
@@ -33,5 +34,5 @@
     <forager>
       <acceptedCountLimit>4</acceptedCountLimit>
     </forager>
-  </localSearch>
+</localSearch>
 </solver>

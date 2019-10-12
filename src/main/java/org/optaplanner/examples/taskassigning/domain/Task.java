@@ -52,6 +52,8 @@ public class Task extends TaskOrEmployee implements Labeled {
     @CustomShadowVariable(variableListenerClass = StartTimeUpdatingVariableListener.class,
             // Arguable, to adhere to API specs (although this works), nextTask and employee should also be a source,
             // because this shadow must be triggered after nextTask and employee (but there is no need to be triggered by those)
+            //可争论的是，为了遵守API规范（尽管这可行），nextTask和employee也应该是源，
+            //因为此阴影必须在nextTask和employee之后触发（但不需要由它们触发）
             sources = {@PlanningVariableReference(variableName = "previousTaskOrEmployee")})
     private Integer startTime; // In minutes
 

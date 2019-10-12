@@ -26,6 +26,10 @@ import org.optaplanner.core.impl.score.director.ScoreDirector;
  * Does a logical AND over the accept status of its filters.
  * @param <Solution_> the solution type, the class with the {@link PlanningSolution} annotation
  * @param <T> the selection type
+ *   *将多个{@link SelectionFilter}组合为一个。
+ *   *对过滤器的接受状态进行逻辑与。
+ *   * @param <Solution_>解决方案类型，带有{@link PlanningSolution}批注的类
+ *   * @param <T>选择类型
  */
 public class CompositeSelectionFilter<Solution_, T> implements SelectionFilter<Solution_, T> {
 

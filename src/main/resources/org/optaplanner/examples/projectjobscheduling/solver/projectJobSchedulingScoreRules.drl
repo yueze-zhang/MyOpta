@@ -53,6 +53,7 @@ rule "nonrenewableResourceCapacity"
 end
 //可再生资源使用日
 rule "renewableResourceUsedDay"
+        //salience值越大 优先执行度就越大。
         salience 1 // Do these rules first (optional, for performance)首先执行这些规则(可选，以提高性能)
     when
         ResourceRequirement(resourceRenewable == true, $executionMode : executionMode, $resource : resource)
@@ -82,7 +83,7 @@ end
 // ############################################################################
 // Soft constraints
 // ############################################################################
-
+//项目总延时：最小化每个项目的持续时间
 rule "totalProjectDelay"
     when
         Allocation(jobType == JobType.SINK, endDate != null, $endDate : endDate,
